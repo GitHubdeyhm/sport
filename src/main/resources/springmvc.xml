@@ -11,9 +11,6 @@
 	http://www.springframework.org/schema/mvc
 	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     
-	<!-- 配置只扫描控制器所在的包 -->
-    <!-- <context:component-scan base-package="learn.frame.controller" /> -->
-    
     <!-- 如果控制器不在一个包里面，则可以通过配置只扫描Controller注解 -->
     <context:component-scan base-package="com.sport.controller" use-default-filters="false">
     	<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
@@ -32,13 +29,13 @@
     		classic_compatible属性必须配置为true，否则当模板文件遇到null值时抛出异常，配置后遇到null值返回空字符串
      -->
     <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer"
-    	p:templateLoaderPaths="/WEB-INF/freemarker/"
+    	p:templateLoaderPaths="/WEB-INF/templates/"
     	p:defaultEncoding="UTF-8">
     	<property name="freemarkerSettings">
     		<props>
-    			<prop key="classic_compatible">true</prop>
+    			<!--<prop key="classic_compatible">true</prop>-->
     			<prop key="locale">zh_CN</prop>
-				<prop key="number_format">#.##</prop>
+				<prop key="number_format">0.##</prop>
     		</props>
     	</property>
     </bean>
@@ -52,20 +49,7 @@
     	p:suffix=".ftl"
     	p:contentType="text/html;charset=UTF-8" />
 
-    <!-- 
-    	spring3提供的静态资源处理方式一：
-    	通过配置mvc:default-servlet-handler元素提供了一个默认的类
-    	org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler
-    	检查是否是静态资源的请求，如果发现是静态资源的请求则交给web容器的默认servlet处理，否则交给DispatcherServlet类处理。
-    	说明：
-    	1、一般web服务器（Tomcat、Jetty、weblogic、jboss、websphere）提供的默认servlet名称都是“default”，
-    	       因此DefaultServletHttpRequestHandler类能够找到默认的servlet处理类，如果web服务器提供的默认servlet的
-    	       名称不是“default”,则通过defaultServletName属性显示指定默认servlet的名称。
-    	2、这种处理方式实际还是由web服务器处理静态资源。
-     -->	
-    <!-- <mvc:default-servlet-handler /> -->
-    
-    <!-- 
+    <!--
     	spring3提供的静态资源处理方式二：
     	通过配置mvc:resources元素让springmvc框架自己处理静态资源文件，说明：
     	1、location：指定资源文件的路径，多个路径以英文逗号隔开。对于多个路径下当存在相同的资源文件的处理方式是按配置
@@ -74,18 +58,18 @@
     	3、传统的web容器只能将静态资源文件放到WEBROOT目录，而通过这种方式允许将静态资源文件放在任何位置（如WEB-INF目录、类路径目录）。
     	4、访问静态资源时需要加上mapping属性映射的路径名，此处是“resources”
      -->
-	<mvc:resources mapping="/resources/**" 	location="/" cache-period="31536000" />
+	<mvc:resources mapping="/resources/**" 	location="/" cache-period="1" />
     
     <!-- 自定义springmvc的异常处理 -->
     <!--<bean class="learn.frame.common.exception.ExceptionResolver"></bean>-->
     
     <!-- springmvc配置拦截器处理 -->
-    <!--<mvc:interceptors>
+    <mvc:interceptors>
     	<mvc:interceptor>
     		<mvc:mapping path="/**"  />
-    		<bean class="learn.frame.common.interceptor.GlobalInterceptor"></bean>
+    		<bean class="com.sport.common.intercept.GlobalInterceptor"></bean>
     	</mvc:interceptor>
-    </mvc:interceptors>-->
+    </mvc:interceptors>
     
     <!-- 
     	该配置会创建并注册一个默认的DefaultAnnotationHandlerMapping和AnnotationMethodHandlerAdapter实例

@@ -5,6 +5,7 @@ import org.apache.ibatis.jdbc.SQL;
 import java.util.Map;
 
 /**
+ * 通过sql提供者
  * @author huangxiaolin
  * @date 2017-09-19 下午3:25
  */
@@ -19,11 +20,10 @@ public class CommonSqlProvider {
      */
     public String insert(final Object obj) {
         Map<String, String> nameValueMap = SqlHelper.getFieldNameValueMap(obj);
-        String sql = new SQL()
+        return new SQL()
                 .INSERT_INTO(SqlHelper.getTableName(obj))
                 .VALUES(nameValueMap.get(SqlHelper.FIELD_NAME), nameValueMap.get(SqlHelper.FIELD_VALUE))
                 .toString();
-        return sql;
     }
 
     /**

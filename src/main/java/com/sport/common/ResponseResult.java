@@ -12,7 +12,7 @@ import static com.sport.common.CommonCode.SUCCESS_CODE;
  * 响应请求结果类，返回用户操作结果的提示信息
  * @date 2017-09-09 13:59
  */
-public class ResposeResult<T> implements Serializable {
+public class ResponseResult<T> implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -23,7 +23,7 @@ public class ResposeResult<T> implements Serializable {
     /**响应结果的数据*/
     private T data;
 
-	public ResposeResult(Message msg) {
+	public ResponseResult(Message msg) {
         this.code = msg.getCode();
         this.msg = msg.getKey();
     }
@@ -31,14 +31,14 @@ public class ResposeResult<T> implements Serializable {
 	/**
 	 * 默认操作成功的方法
 	 */
-	public static ResposeResult<String> successResult() {
-		return new ResposeResult<>(Message.SUCCESS);
+	public static ResponseResult<String> successResult() {
+		return new ResponseResult<>(Message.SUCCESS);
 	}
 	/**
 	 * 默认操作失败的方法
 	 */
-	public static ResposeResult<String> errorResult() {
-		return new ResposeResult<>(Message.ERROR);
+	public static ResponseResult<String> errorResult() {
+		return new ResponseResult<>(Message.ERROR);
 	}
 	
 	public int getCode() {

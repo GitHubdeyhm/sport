@@ -22,11 +22,11 @@ public class MessageHelper {
      * 提示信息
      * @date 2017-09-23 22:37
      */
-    public static void info(String key) {
+    public static void message(String key) {
         throw new ServiceException(getMessage(key));
     }
 
-    public static void info(Message msg) {
+    public static void message(Message msg) {
         throw new ServiceException(getMessage(msg.getKey()));
     }
 
@@ -35,6 +35,7 @@ public class MessageHelper {
         if (msg == null) {
             msg = FileUtil.getPropertiesValueByKey(MESSAGE_FILE, key);
             msgCacheMap.put(key, msg);
+            System.out.println("mapcache");
         }
         return msg;
     }

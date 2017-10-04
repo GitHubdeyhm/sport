@@ -27,7 +27,7 @@ public class FileUtil {
 	 */
 	public static Properties loadPropertiesFile(String fileName) {
 		Properties prop = null;
-		if (!StringUtil.isNullOrTrimEmpty(fileName)) {
+		if (!StringUtil.isBlank(fileName)) {
 			//加载类路径下的属性文件
 			InputStream in = FileUtil.class.getResourceAsStream("/"+fileName+PROPERTY_EXT_NAME);
 			if (in != null) {

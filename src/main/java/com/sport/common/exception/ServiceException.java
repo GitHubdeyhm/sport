@@ -22,10 +22,6 @@ public class ServiceException extends RuntimeException{
         this.code = code;
     }
 
-    public static void info(String message) {
-        throw new ServiceException(message);
-    }
-
     public int getCode() {
         return code;
     }

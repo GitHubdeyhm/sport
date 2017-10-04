@@ -89,14 +89,10 @@
     <!-- 出错页面定义 -->
     <error-page>
         <error-code>403</error-code>
-        <location>/common/error_403.html</location>
-    </error-page>
-    <error-page>
-        <error-code>404</error-code>
-        <location>/common/error_404.html</location>
+        <location>/common/error/error_403.html</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>
-        <location>/common/error_500.html</location>
+        <location>/common/error/error_403.html</location>
     </error-page>
 </web-app>

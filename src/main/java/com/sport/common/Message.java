@@ -21,7 +21,7 @@ public enum Message {
     private int code;
     private String key;
 
-    Message(int code, String key) {
+    private Message(int code, String key) {
         this.code = code;
         this.key = key;
     }

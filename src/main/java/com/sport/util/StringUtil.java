@@ -76,12 +76,12 @@ public class StringUtil {
 	}
 
 	/**
-	 * 判断一个字符串是否为null或者空字符串或者去除前后空格字符后为空。满足返回true，否则返回false。
+	 * 判断一个字符串是否为null或者空字符串或者去除前后空格字符后为空。
 	 * @Date 2016-8-4下午11:33:25
 	 * @param str 字符串对象
 	 * @return 为null或者空字符串或者去除前后空格字符后为空返回true，否则返回false。
 	 */
-	public static boolean isNullOrTrimEmpty(String str) {
+	public static boolean isBlank(String str) {
 		return str == null ||  str.trim().length() == 0;
 	}
 

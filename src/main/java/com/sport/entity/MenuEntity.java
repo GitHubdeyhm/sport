@@ -1,10 +1,9 @@
 package com.sport.entity;
 
 import com.sport.common.annotation.Id;
+import com.sport.common.annotation.Ignore;
 import com.sport.common.annotation.Table;
-import com.sport.util.StringUtil;
 
-import java.beans.Transient;
 import java.io.Serializable;
 
 /**
@@ -12,7 +11,7 @@ import java.io.Serializable;
  */
 @Table("t_uums_menu")
 public class MenuEntity implements Serializable {
-
+    @Ignore
 	private static final long serialVersionUID = 1L;
 	
 	/**菜单ID*/
@@ -38,13 +37,7 @@ public class MenuEntity implements Serializable {
 	private Integer menuOrder;
 	/**菜单说明*/
 	private String menuNote;
-	
-	//生成树形表格临时字段
-	private String _parentId;
-	
-	//临时字段--拥有的菜单编码，多个编码以英文逗号隔开
-	private String privilMenuCodes;
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -62,23 +55,7 @@ public class MenuEntity implements Serializable {
 	public String getMenuCode() {
 		return menuCode;
 	}
-	
-	/**
-	 * 设置菜单编码，包括设置了父级菜单编码
-	 * @Date 2016-8-21下午10:47:47
-	 * @param menuCode 菜单编码
-	 */
-	/*public void setMenuCode(String menuCode) {
-		if (!StringUtil.isNullOrEmpty(menuCode)) {
-			int len = menuCode.length();
-			if (len > Constant.CODE_LEVEL_LENGTH) {
-				//设置树形表格的父节点
-				this._parentId = menuCode.substring(0, len-Constant.CODE_LEVEL_LENGTH);
-			}
-		}
-		this.menuCode = menuCode;
-	}*/
-	
+
 	public String getMenuUrl() {
 		return menuUrl;
 	}
@@ -135,16 +112,16 @@ public class MenuEntity implements Serializable {
 	public void setMenuNote(String menuNote) {
 		this.menuNote = menuNote;
 	}
-	
-	public String getPrivilMenuCodes() {
-		return privilMenuCodes;
-	}
-	public void setPrivilMenuCodes(String privilMenuCodes) {
-		this.privilMenuCodes = privilMenuCodes;
-	}
-	
-	@Transient
-	public String get_parentId() {
-		return _parentId;
-	}
+
+    public void setMenuCode(String menuCode) {
+        this.menuCode = menuCode;
+    }
+
+    public Boolean getEnable() {
+        return isEnable;
+    }
+
+    public void setEnable(Boolean enable) {
+        isEnable = enable;
+    }
 }
