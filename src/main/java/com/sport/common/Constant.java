@@ -11,4 +11,10 @@ public interface Constant {
     String MESSAGE_KEY = "msg";
     /**响应结果编码的键*/
     String CODE_KEY = "code";
+
+    /**html头信息的key*/
+    String HTML_TITLE_KEY = "html_title";
+
+    /**网站访问数量的key*/
+    String ACCESS_COUNT_KEY = "access_count";
 }

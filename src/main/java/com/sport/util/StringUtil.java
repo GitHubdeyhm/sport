@@ -1,5 +1,7 @@
 package com.sport.util;
 
+import com.sport.common.MessageHelper;
+
 import java.util.UUID;
 
 /**
@@ -127,6 +129,18 @@ public class StringUtil {
             }
         }
         return sb.toString();
+    }
+
+    /**
+     * 生成编码,3位一级
+     * @date 2017-10-04 15:29
+     */
+    public static String generateCode(int num) {
+        if (num >= 999) {
+            MessageHelper.message("code.max.range");
+        }
+        String formateStr = String.format("%03d", num);
+        return formateStr;
     }
 
 

@@ -1,0 +1,43 @@
+.left-panel {
+    float: left;
+    background-color: #2A3542;
+    width: 180px;
+    min-height: 800px;
+    margin-right: 15px;
+}
+.left-panel ul, .left-panel li {
+    padding: 0;
+    margin: 0;
+}
+.nav-menu li a {
+    color: #aeb2b7;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 12px 8px;
+    display: block;
+    position: relative;
+    text-align: center;
+}
+.nav-menu li a.selected {
+    background-color: #35404d;
+}
+.nav-menu li a span {
+    vertical-align: middle;
+}
+.nav-menu li a .nav-select {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent;/**透明*/
+    border-right-color: #F1F2F7;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -8px;
+}
+.right-panel {
+    float: right;
+}

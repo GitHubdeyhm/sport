@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.sport.dao.uums.MenuDao">
+
+    <select id="find" parameterType="com.sport.entity.uums.MenuEntity" resultType="com.sport.entity.uums.MenuEntity">
+        SELECT * FROM t_uums_menu WHERE menu_project_code = #{menuProjectCode}
+        ORDER BY menu_order DESC
+    </select>
+</mapper>

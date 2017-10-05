@@ -21,15 +21,16 @@
             <property name="trimStrings" value="false" />
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="mybatis/mapper/test.xml"  targetProject="src/main/resources">
+        <!--<sqlMapGenerator targetPackage="mybatis/mapper/test.xml"  targetProject="src/main/resources">
             <property name="enableSubPackages" value="false" />
-        </sqlMapGenerator>
+        </sqlMapGenerator>-->
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.sport.dao"  targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
         <table tableName="t_uums_menu" domainObjectName="MenuEntity"></table>
+        <table tableName="t_base_dict" domainObjectName="BaseDictEntity"></table>
 
     </context>
 </generatorConfiguration>

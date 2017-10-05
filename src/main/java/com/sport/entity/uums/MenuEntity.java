@@ -1,4 +1,4 @@
-package com.sport.entity;
+package com.sport.entity.uums;
 
 import com.sport.common.annotation.Id;
 import com.sport.common.annotation.Ignore;
@@ -13,8 +13,14 @@ import java.io.Serializable;
 public class MenuEntity implements Serializable {
     @Ignore
 	private static final long serialVersionUID = 1L;
-	
-	/**菜单ID*/
+
+    public MenuEntity() {}
+
+    public MenuEntity(String menuProjectCode) {
+        this.menuProjectCode = menuProjectCode;
+    }
+
+    /**菜单ID*/
 	@Id
 	private Integer id;
 	/**菜单名称*/

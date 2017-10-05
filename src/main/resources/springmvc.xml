@@ -33,7 +33,8 @@
     	p:defaultEncoding="UTF-8">
     	<property name="freemarkerSettings">
     		<props>
-    			<!--<prop key="classic_compatible">true</prop>-->
+                <!-- freemarker默认当变量不存在或为null时会报错，增加以下配置可以让界面不报错-->
+    			<prop key="classic_compatible">true</prop>
     			<prop key="locale">zh_CN</prop>
 				<prop key="number_format">0.##</prop>
     		</props>
@@ -61,12 +62,12 @@
 	<mvc:resources mapping="/resources/**" 	location="/" cache-period="1" />
     
     <!-- 自定义springmvc的异常处理 -->
-    <!--<bean class="learn.frame.common.exception.ExceptionResolver"></bean>-->
+    <bean class="com.sport.common.exception.ExceptionResolver"></bean>
     
     <!-- springmvc配置拦截器处理 -->
     <mvc:interceptors>
     	<mvc:interceptor>
-    		<mvc:mapping path="/**"  />
+    		<mvc:mapping path="/**"   />
     		<bean class="com.sport.common.intercept.GlobalInterceptor"></bean>
     	</mvc:interceptor>
     </mvc:interceptors>

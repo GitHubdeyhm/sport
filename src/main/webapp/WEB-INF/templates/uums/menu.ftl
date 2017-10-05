@@ -1,7 +1,8 @@
-<#include "header.ftl" />
+<#include "common/header.ftl" />
 
-    <div>
-        <form action="${webRoot}/menu/save" method="post" class="form-horizontal" role="form">
+    <div class="right-panel">
+        <form action="${webRoot}/manage/menu/save" id="menu_form" method="post" class="form-horizontal" role="form">
+            <input type="hidden" name="menuProjectCode" value="front" />
             <div class="form-group">
                 <label for="menuName_input" class="col-sm-2 control-label">菜单名称</label>
                 <div class="col-sm-10">
@@ -39,7 +40,11 @@
             </div>
         </form>
     </div>
+    <div style="clear: both"></div>
 <script type="text/javascript">
+    var leftWidth = $(".left-panel").width() + 20;
+    $(".right-panel").width($(window).width() - leftWidth);
+
 
 </script>
 </body>
