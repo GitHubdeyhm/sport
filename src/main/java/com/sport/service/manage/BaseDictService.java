@@ -34,4 +34,12 @@ public class BaseDictService {
     public List<BaseDictEntity> findByKey(String key) {
         return baseDictDao.findByKey(key);
     }
+
+    /**
+     * 通过父ID查询
+     * @date 2017-10-05 23:53
+     */
+    public List<BaseDictEntity> findByParentId(Integer parentId) {
+        return baseDictDao.findByParentId(parentId);
+    }
 }

@@ -17,4 +17,10 @@ public interface Constant {
 
     /**网站访问数量的key*/
     String ACCESS_COUNT_KEY = "access_count";
+
+    /**项目根路径*/
+    String WEB_ROOT = "webRoot";
+
+    String TREENODE_ROOT_ID = "-1";
+    String TREENODE_ROOT_TEXT = "请选择";
 }

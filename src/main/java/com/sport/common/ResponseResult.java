@@ -25,7 +25,7 @@ public class ResponseResult<T> implements Serializable {
 
 	public ResponseResult(Message msg) {
         this.code = msg.getCode();
-        this.msg = msg.getKey();
+        this.msg = MessageHelper.getMessage(msg.getKey());
     }
 
 	/**

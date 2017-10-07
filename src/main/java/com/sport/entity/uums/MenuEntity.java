@@ -14,12 +14,6 @@ public class MenuEntity implements Serializable {
     @Ignore
 	private static final long serialVersionUID = 1L;
 
-    public MenuEntity() {}
-
-    public MenuEntity(String menuProjectCode) {
-        this.menuProjectCode = menuProjectCode;
-    }
-
     /**菜单ID*/
 	@Id
 	private Integer id;
@@ -43,6 +37,13 @@ public class MenuEntity implements Serializable {
 	private Integer menuOrder;
 	/**菜单说明*/
 	private String menuNote;
+
+    public MenuEntity() {}
+
+    public MenuEntity(String menuMark, Boolean isEnable) {
+        this.menuMark = menuMark;
+        this.isEnable = isEnable;
+    }
 
 	public Integer getId() {
 		return id;

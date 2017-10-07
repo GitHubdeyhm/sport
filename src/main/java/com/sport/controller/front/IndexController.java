@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author huangxl
  * @date 2017-10-04 22:48
  */
-@Controller
+@Controller("index")
 public class IndexController {
 
     @Autowired
@@ -24,7 +24,8 @@ public class IndexController {
     @GetMapping("/index")
     public String index(HttpServletRequest request) {
         request.setAttribute(Constant.HTML_TITLE_KEY, "首页");
-        MenuEntity menu = new MenuEntity();
+        MenuEntity menu = new MenuEntity("front", true);
+        menu.setMenuCode("001%");
         request.setAttribute("menuList", menuService.find(menu));
         return "front/index";
     }

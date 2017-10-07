@@ -4,6 +4,7 @@ import com.sport.dao.sql.CommonSqlProvider;
 import com.sport.entity.manage.BaseDictEntity;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.UpdateProvider;
 
 import java.util.List;
@@ -22,4 +23,9 @@ public interface BaseDictDao {
     void update(BaseDictEntity dict);
 
     List<BaseDictEntity> findByKey(String key);
+    /**
+     * 通过父ID查询
+     * @date 2017-10-05 23:53
+     */
+    List<BaseDictEntity> findByParentId(@Param("parentId") Integer parentId);
 }

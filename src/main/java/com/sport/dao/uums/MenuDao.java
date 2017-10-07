@@ -26,5 +26,11 @@ public interface MenuDao {
     @Select("SELECT MAX(menu_code) FROM t_uums_menu WHERE menu_code LIKE #{parentCodeLike}")
     String findByCode(String parentCodeLike);
 
+    @Select("SELECT MAX(menu_order) from t_uums_menu WHERE menu_code LIKE #{parentCodeLike}")
+    Integer genOrderNum(String parentCodeLike);
+
     List<MenuEntity> find(MenuEntity menu);
+
+    @Select("select * from t_uums_menu where id = #{id}")
+    MenuEntity findById(int id);
 }

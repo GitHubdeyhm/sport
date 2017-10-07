@@ -10,21 +10,3 @@
     <title>${html_title}</title>
 </head>
 <body>
-<div class="left-panel">
-    <div class="nav-menu">
-        <ul>
-        <#list menuList as menu>
-            <li>
-                <a class="selected" href="${webRoot}${menu.menuUrl}">
-                    <span class="nav-icon"></span>
-                    <span>${menu.menuName}</span>
-                    <span class="nav-select"></span>
-                </a>
-            </li>
-        </#list>
-        </ul>
-    </div>
-</div>
-
-
-

@@ -4,7 +4,21 @@
 <mapper namespace="com.sport.dao.uums.MenuDao">
 
     <select id="find" parameterType="com.sport.entity.uums.MenuEntity" resultType="com.sport.entity.uums.MenuEntity">
-        SELECT * FROM t_uums_menu WHERE menu_project_code = #{menuProjectCode}
-        ORDER BY menu_order DESC
+        SELECT * FROM t_uums_menu
+        <where>
+            <if test="menuProjectCode != null">
+                AND menu_project_code = #{menuProjectCode}
+            </if>
+            <!--<if test="menuMark != null and menuMark != ''">
+                AND menu_mark = #{menuMark}
+            </if>-->
+            <if test="isEnable != null">
+                AND is_enable = #{isEnable}
+            </if>
+            <if test="menuCode != null and menuCode != ''">
+                AND menu_code LIKE #{menuCode}
+            </if>
+        </where>
+        ORDER BY menu_order ASC
     </select>
 </mapper>
