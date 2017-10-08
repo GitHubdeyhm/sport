@@ -21,4 +21,12 @@
         </where>
         ORDER BY menu_order ASC
     </select>
+
+    <select id="findNavMenu" resultType="com.sport.entity.uums.MenuEntity">
+        SELECT * FROM t_uums_menu WHERE menu_code in
+        <foreach item="item" index="index" collection="codes" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        ORDER BY menu_order ASC
+    </select>
 </mapper>

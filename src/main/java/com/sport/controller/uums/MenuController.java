@@ -59,7 +59,6 @@ public class MenuController {
         return result;
     }
 
-
     @PostMapping("/save")
     @ResponseBody
     public ResponseResult<String> saveOrUpdate(MenuEntity menu, @RequestParam(required = false) String parentCode) {
@@ -75,6 +74,12 @@ public class MenuController {
         menu.setMenuCode("001%");
         result.setData(menuService.find(menu));
         return result;
+    }
+
+    @PostMapping("/nav")
+    @ResponseBody
+    public List<MenuEntity> nav(@RequestParam String code) {
+        return menuService.findForNav(code);
     }
 }
 

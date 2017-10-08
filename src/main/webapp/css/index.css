@@ -1,0 +1,246 @@
+body {
+    background-color: #f5f5f5;
+}
+.logo_name {
+    color: #ec2008;
+    font-size: 26px;
+    font-weight: bold;
+}
+.logo_pos {
+    margin: 20px auto 15px auto;
+    width: 924px;
+}
+.logo_pos .barcode img {
+    width: 40px;
+    height: 40px;
+}
+.logo_pos .teacher {
+    font-size: 18px;
+    color: #ec2008;
+    font-weight: bold;
+    font-style: italic;
+}
+.logo_pos .phone {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ec2008;
+    font-style: italic;
+}
+/**菜单样式*/
+.nav-bg {
+    background-color: #ec2008;
+    color: #fff;
+    height: 40px;
+    line-height: 40px;
+}
+.nav-menu {
+    position: relative;
+    left: 50%;
+    float: left;
+}
+.nav-menu .nav-ul {
+    position: relative;
+    left: -50%;
+    z-index: 99;
+}
+.nav-menu .nav-li {
+    position: relative;
+    float: left;
+}
+.nav-menu .nav-li a {
+    color: #fff;
+    font-size: 15px;
+    display: block;
+    padding: 0px 24px;
+}
+.nav-menu .nav-li ul {
+    display: none;
+    background-color: #B81F19;
+    border: 1px solid #B81F19;
+    position: absolute;
+    top: 40px;
+    left: 0;
+}
+.nav-menu .nav-li ul a {
+    color: #fff;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/**滚动图片样式*/
+.show-area {
+    position: relative;
+    width: 1104px;
+    height: 360px;
+    margin: 0px auto 16px auto;
+    overflow: hidden;
+}
+.img-list {
+    position: relative;
+}
+.img-list ul {
+    position: absolute;
+}
+.img-list ul li {
+    float: left;
+}
+.img-list a {
+    cursor: default;
+}
+.img-list a img {
+    width: 1104px;
+    height: 360px;
+    border-width: 0;
+}
+
+.operation .last_next {
+    display: none;
+}
+.main-area .button span {
+    position: absolute;
+    z-index: 10;
+    top: 120px;
+    display: block;
+    width: 40px;
+    height: 54px;
+    line-height: 54px;
+    vertical-align: middle;
+    font-size: 38px;
+    font-weight: 100;
+    color: #fff;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+.main-area .button span:hover {
+    background-color: rgba(0 ,0, 0, 0.6);
+}
+.main-area .button span.last {
+    left: 10px;
+}
+.main-area .button span.next {
+    right: 15px;
+}
+.main-area .dot-wrap {
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    float: left;
+    z-index: 10;
+}
+.main-area .dot-wrap .img-nav {
+    position: relative;
+    left: -50%;
+    padding: 2px 3px;
+    background-color: #f3f3f3;
+    border: 2px solid #e6e6e6;
+    border-radius: 12px;/*设置圆角*/
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+.main-area .dot-wrap .img-nav li {
+    float: left;
+    margin: 0px 2px;
+    font-size: 0;
+    text-align: center;
+}
+.main-area .dot-wrap .img-nav li a {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;/*设置圆角*/
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    overflow: hidden;
+    background-color: #dfdfdf;
+}
+.main-area .dot-wrap .img-nav li.select a {
+    background-color: #ff3300;
+}
+
+/**内容区*/
+#content {
+    width: 1104px;
+    margin: 20px auto 40px auto;
+    font-size: 14px;
+    line-height: 28px;
+}
+.left {
+    width: 240px;
+    float: left;
+    text-align: center;
+}
+.left li {
+    background-color: #dadada;
+    padding: 8px 12px;
+    border-top: 1px dashed #626262;
+    border-left: 6px solid #B81F19;
+    color: #474747;
+}
+.left li.select {
+    border-left: 6px solid #B81F19;
+}
+.left li:first-child {
+    border-top-width: 0;
+}
+.left .barcode {
+    margin-top: 20px;
+    border: 1px solid #B81F19;
+    text-align: center;
+}
+.left .barcode img {
+    width: 236px;
+    height: 236px;
+}
+
+.right {
+    width: 760px;
+    float: right;
+}
+.right .location {
+    margin-bottom: 32px;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed #B81F19;
+}
+.right .location a {
+    color: #171df3;
+}
+.right .location a:hover {
+    color: #171df3;
+    text-decoration: underline;
+}
+.right .empty-tip {
+    color: #a6a6a6;
+    font-size: 16px;
+}
+/**关于我们*/
+.right .introduce-us h2{
+    text-align: center;
+    color: #474747;
+    font-size: 18px;
+    font-weight: bold;
+}
+.right .introduce-us h4{
+    text-align: center;
+    color: #474747;
+    font-size: 14px;
+    font-weight: bold;
+}
+.right .introduce-us p {
+    color: #474747;
+    font-size: 14px;
+    text-indent: 2em;
+}
+
+/**footer*/
+#footer {
+    padding: 20px 0;
+    background-color: #1f1f1f;
+    color: #d9d9d9;
+    text-align: center;
+    margin-top: 66px;
+}

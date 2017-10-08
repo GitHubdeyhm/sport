@@ -26,6 +26,7 @@
             <#-- <th field="radio" formatter="radioFmt"></th> 显示单选按钮 -->
             <th field="menuName" align="left" width="200">菜单名称</th>
             <th field="menuUrl" width="180">菜单地址</th>
+            <th field="menuCode" width="100">菜单编码</th>
             <th field="menuMark" width="100">菜单标识</th>
             <th field="menuOrder" width="100" sortable="true">排序号</th>
             <#--<th field="menuNote" width="180">菜单说明</th>-->

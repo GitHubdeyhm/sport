@@ -46,6 +46,12 @@ function yesNoFmt(value) {
 	return Constant.emptyContent;
 }
 
+//获取当前年份
+function getCurrentYear() {
+    var dateObj = new Date();
+    return dateObj.getFullYear();//年份
+}
+
 /**
  * 屏蔽退格键(backspace)，防止按backspace键刷新页面。
  * <p>只对密码框、可输入文本框、可输入多行文本框开启backspace键</p>

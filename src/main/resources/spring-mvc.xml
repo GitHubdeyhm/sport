@@ -72,23 +72,6 @@
     	</mvc:interceptor>
     </mvc:interceptors>
     
-    <!-- 
-    	该配置会创建并注册一个默认的DefaultAnnotationHandlerMapping和AnnotationMethodHandlerAdapter实例
-    	如果存在自定义的处理器会覆盖默认的。
-    	也会注册一个默认的ConversionService实例，即FormattingConversionServiceFactoryBean，
-    	可以通过自定义的ConversionService覆盖默认配置。
-     -->
-    <!-- 开启注解驱动模式，比如Controller注解等 -->
+    <!-- 开启注解驱动模式，比如启用Controller注解等 -->
     <mvc:annotation-driven />
-    <!--<mvc:annotation-driven conversion-service="conversionService" />-->
-    
-    <!-- 配置类型转换器 -->
-    <!--<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
-    	<property name="converters">
-    		<set>
-    			<bean class="learn.frame.common.converter.DateConverter"></bean>
-    		</set>
-    	</property>
-    </bean>-->
-    
 </beans>

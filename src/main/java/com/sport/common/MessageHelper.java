@@ -35,7 +35,6 @@ public class MessageHelper {
         if (msg == null) {
             msg = FileUtil.getPropertiesValueByKey(MESSAGE_FILE, key);
             msgCacheMap.put(key, msg);
-            System.out.println("mapcache");
         }
         return msg;
     }

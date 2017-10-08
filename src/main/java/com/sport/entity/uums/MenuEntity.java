@@ -40,6 +40,10 @@ public class MenuEntity implements Serializable {
 
     public MenuEntity() {}
 
+    public MenuEntity(Boolean isEnable) {
+        this.isEnable = isEnable;
+    }
+
     public MenuEntity(String menuMark, Boolean isEnable) {
         this.menuMark = menuMark;
         this.isEnable = isEnable;

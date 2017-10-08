@@ -122,4 +122,20 @@ public class MenuService {
         }
         return nodeList;
     }
+
+    public List<MenuEntity> findForNav(String code) {
+        if (!StringUtil.isBlank(code)) {
+            int level = code.length() / CodeUtil.CODE_LEVEL_LENGTH;
+            if (level < 2) {
+                return null;
+            }
+            List<String> codes = new ArrayList<>(level+1);
+            codes.add("001003");//首页
+            for (int i = 2; i <= level; i++) {
+                codes.add(code.substring(0, CodeUtil.CODE_LEVEL_LENGTH * i));
+            }
+            return menuDao.findNavMenu(codes);
+        }
+        return null;
+    }
 }

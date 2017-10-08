@@ -2,10 +2,7 @@ package com.sport.dao.uums;
 
 import com.sport.dao.sql.CommonSqlProvider;
 import com.sport.entity.uums.MenuEntity;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -33,4 +30,10 @@ public interface MenuDao {
 
     @Select("select * from t_uums_menu where id = #{id}")
     MenuEntity findById(int id);
+
+    /**
+     * 根据编码查询菜单，用于导航
+     * @date 2017-10-08 14:39
+     */
+    List<MenuEntity> findNavMenu(@Param("codes") List<String> codes);
 }
