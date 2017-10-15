@@ -32,7 +32,7 @@ function defaultFmt(value) {
 	return value ? value : Constant.emptyContent;
 }
 /**
- * 用于0：否1：是的格式化列
+ * 用于0：否，1：是的格式化列
  * @Date 2016-10-22下午2:29:45
  * @returns
  */

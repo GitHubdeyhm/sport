@@ -1,5 +1,7 @@
 <#include "common/header.ftl" />
 
+<#include "common/leave-message.ftl" >
+
 <div id="content" class="clearfix">
 
     <#include "common/content-left.ftl" />

@@ -23,11 +23,15 @@ public class ResponseResult<T> implements Serializable {
     /**响应结果的数据*/
     private T data;
 
+    public ResponseResult(int code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
 	public ResponseResult(Message msg) {
         this.code = msg.getCode();
         this.msg = MessageHelper.getMessage(msg.getKey());
     }
-
 	/**
 	 * 默认操作成功的方法
 	 */

@@ -30,7 +30,7 @@
             <th field="menuMark" width="100">菜单标识</th>
             <th field="menuOrder" width="100" sortable="true">排序号</th>
             <#--<th field="menuNote" width="180">菜单说明</th>-->
-            <th field="isEnable" width="70" formatter="enableFmt">是否启用</th>
+            <th field="isEnable" width="70" formatter="yesNoFmt">是否启用</th>
         </tr>
         </thead>
     </table>
@@ -49,7 +49,31 @@
             treeField: 'menuName',//树形表格的树列字段名称
             singleSelect: true,//单选
             sortName: "menuOrder",//根据角色排序号排序
-            sortOrder: "asc",//排序方式，升序
+            sortOrder: "asc",//排序方式，升序,
+            loadFilter : function (dataGridData) {
+                var data = dataGridData.rows;
+                var opts = $(this).treegrid("options");
+                var id = opts.idField || 'id';
+                var parentId = "_parentId";//父ID字段
+                var i, len = data.length, treeData = [], tmpMap = {};
+                for (i = 0; i < len; i++) {
+                    tmpMap[data[i][id]] = data[i];//tempMap对象的属性以ID值为标识符，其值为对象data[i]
+                }
+                for (i = 0; i < len; i++) {
+                    var node = data[i];
+                    //得到根节点
+                    if (node[id].length == 3) {
+                        treeData.push(node);
+                    } else {
+                        var parentCode = node[id].substring(0, node[id].length-3);
+                        if (!tmpMap[parentCode].children) {
+                            tmpMap[parentCode].children = [];
+                        }
+                        tmpMap[parentCode].children.push(node);//添加子节点
+                    }
+                }
+                return treeData;
+            },
             onClickRow: function(row) {
                 //var index = getRowIndex(row);
                 //alert(index);
@@ -61,25 +85,12 @@
                 //console.log($(this).treegrid("options"));
             }
         });
-
-        //是否启用下拉框
-        $("#enableStr_search").combobox({
-            value: "-1",//设置下拉框的默认值
-            panelHeight: "auto",
-            url: "${ctx}/json/yes_no.json"
-        });
     });
-
-    //是否启用formatter
-    function enableFmt(value, row, index) {
-        return value ? "是" : "否"
-    }
 
     //单选按钮formatter
     function radioFmt(value, row, index) {
         return '<input type="radio" name="grid_radio" />';
     }
-
     /**
      * 点击处理弹出框
      */
@@ -124,7 +135,6 @@
                 $(this).dialog('destroy');
             },
             onLoad : function() {
-               // menu_input_form_init();
                 var val = "-1";
                 if (row) {
                     $('#menu_input_form').form('load', row);
@@ -172,7 +182,7 @@
                     dataType: "json",
                     success: function(data) {
                         //1：成功，0：失败
-                        if (data.resultCode == 1) {
+                        if (data.code == 1) {
                             menu_treegrid.treegrid('reload');//重新加载列表数据
                         }
                         et.showMsg(data.msg);

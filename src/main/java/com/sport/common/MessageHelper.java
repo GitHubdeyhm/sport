@@ -16,7 +16,7 @@ public class MessageHelper {
     //缓存响应信息的map对象
     private static final Map<String, String> msgCacheMap = new HashMap<>();
     //信息属性文件名称
-    private static final String MESSAGE_FILE = "message-zh_CN.properties";
+    private static final String MESSAGE_FILE = "message-zh_CN";
 
     /**
      * 提示信息

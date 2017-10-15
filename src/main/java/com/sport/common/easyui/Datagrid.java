@@ -28,9 +28,7 @@ public class Datagrid<T> implements Serializable {
     private List<T> rows;
     /**页脚*/
     private List<T> footer;
-	
-	
-	
+
 	public Datagrid() {
 		
 	}

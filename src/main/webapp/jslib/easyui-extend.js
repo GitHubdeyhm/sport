@@ -111,7 +111,6 @@ $.fn.tree.defaults.loadFilter = function(data, parent) {
 		}
 		return treeData;
 	}
-	console.log(data);
 	return data;
 };
 

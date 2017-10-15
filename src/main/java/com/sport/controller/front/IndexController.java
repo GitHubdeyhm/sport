@@ -34,6 +34,11 @@ public class IndexController {
         return "front/index";
     }
 
+    @GetMapping("/message")
+    public String leaveMessage() {
+        return "common/leave-message";
+    }
+
     @GetMapping("/contact/us")
     public ModelAndView contactUs(@RequestParam("mc") String menuCode) {
         return getNav(menuCode, "front/contact-us");
@@ -57,6 +62,11 @@ public class IndexController {
     @GetMapping("/regist/notice")
     public ModelAndView registNotice(@RequestParam("mc") String menuCode) {
         return getNav(menuCode, "front/regist-notice");
+    }
+
+    @GetMapping("/enroller/info")
+    public ModelAndView enrollerInfo(@RequestParam("mc") String menuCode) {
+        return getNav(menuCode, "front/enroller-info");
     }
 
 

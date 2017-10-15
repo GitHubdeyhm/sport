@@ -1,7 +1,5 @@
 package com.sport.util;
 
-import com.sport.common.MessageHelper;
-
 import java.util.UUID;
 
 /**
@@ -73,7 +71,7 @@ public class StringUtil {
 	 * @param str 字符串
 	 * @return 如果字符串为null则返回空字符串
 	 */
-	public static String getNotNullString(String str) {
+	public static String notNullString(String str) {
 		return (str == null) ? "" : str;
 	}
 
@@ -132,15 +130,12 @@ public class StringUtil {
     }
 
     /**
-     * 生成编码,3位一级
+     * 获取字符串的长度，如果字符串为空返回0
      * @date 2017-10-04 15:29
+     * @return 如果字符串为空返回0
      */
-    public static String generateCode(int num) {
-        if (num >= 999) {
-            MessageHelper.message("code.max.range");
-        }
-        String formateStr = String.format("%03d", num);
-        return formateStr;
+    public static int getLength(String str) {
+        return str == null ? 0 : str.length();
     }
 
 

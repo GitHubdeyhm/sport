@@ -85,6 +85,60 @@ $(function () {
             imgSlide(slideObj, page);
         }
     });
+
+    //留言表单
+    $("#message_button").click(function() {
+        var message = $("#message_message").val();
+        var phone = $("#phone_message").val();
+        var userName = $("#userName_message").val();
+        var mail = $("#mail_message").val();
+
+        var isSubmit = false;
+        var isPhone = /^1[3-8]\d{9}$/.test(phone);
+        if (!isPhone) {
+            $("#phone_message").addClass("invalid-message");
+        }
+        isSubmit = true;
+        if (isSubmit) {
+            var formData = {
+                message: message,
+                phone: phone,
+                userName: userName,
+                mail : mail
+            }
+            $.ajax({
+                type: "POST",
+                url: "/manage/message/save",
+                data: formData,
+                dataType: 'json',
+                success: function(data) {
+                    $("#message_message").val(data.msg);
+                }
+            });
+        }
+    });
+    /************header****************/
+    //头部二维码
+    $("#barcode_img").hover(
+        function () {
+            $(this).css("cursor", "pointer");
+            $("#barcode_big_img").parent("div").css({"visibility": "visible"});
+        },
+        function () {
+            $(this).css("cursor", "default");
+            $("#barcode_big_img").parent("div").css({"visibility": "hidden"});
+        }
+    );
+    /************留言框****************/
+    $("#leave-message-box .small-box").click(function () {
+        $("#leave-message-box .message-big-box").hide();
+        $("#leave-message-box .message-small-box").show();
+    });
+    $("#leave-message-box .message-small-box").click(function () {
+        $(this).hide();
+        $("#leave-message-box .message-big-box").show();
+    });
+    /************footer****************/
     //设置年份
     $("#footer .current-year").text(getCurrentYear());
 });
@@ -116,6 +170,25 @@ function loadNavMenu(code) {
 function getCurrentYear() {
     var dateObj = new Date();
     return dateObj.getFullYear();//年份
+}
+
+function submitMessageForm(data) {
+    $.ajax({
+        type: "POST",
+        url: "/uums/menu/showMenu",
+        data: {
+            message: message,
+            phone: phone,
+            userName: userName,
+            mail : mail
+        },
+        dataType: 'json',
+        success: function(data) {
+            if (data.code == 1) {
+
+            }
+        }
+    });
 }
 
 

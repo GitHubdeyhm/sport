@@ -52,7 +52,7 @@ public class FileUtil {
 	 * @return 如果指定文件名或键不存在，则返回null
 	 */
 	public static String getPropertiesValueByKey(String fileName, String key) {
-		if (!StringUtil.isNullOrEmpty(key)) {
+		if (!StringUtil.isBlank(key)) {
 			Properties prop = loadPropertiesFile(fileName);
 			if (prop != null) {
 				return prop.getProperty(key);

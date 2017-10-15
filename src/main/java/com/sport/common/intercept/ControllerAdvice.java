@@ -1,5 +1,6 @@
 package com.sport.common.intercept;
 
+import com.sport.common.CommonCode;
 import com.sport.common.ResponseResult;
 import com.sport.common.exception.ServiceException;
 import org.apache.log4j.Logger;
@@ -22,9 +23,8 @@ public class ControllerAdvice {
      */
     @ExceptionHandler(ServiceException.class)
     @ResponseBody
-    public String handlerExcepation(ServiceException ex) {
-        log.error(ex);
-        return ex.getMessage();
+    public ResponseResult<String> handlerExcepation(ServiceException ex) {
+        return new ResponseResult<>(CommonCode.ERROR_CODE, ex.getMessage());
     }
 
     /**

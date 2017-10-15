@@ -1,35 +1,48 @@
 body {
     background-color: #f5f5f5;
 }
-.logo_name {
-    color: #ec2008;
+.header-top .logo_pos .logo_name {
+    color: #DE4240;
     font-size: 26px;
     font-weight: bold;
 }
-.logo_pos {
-    margin: 20px auto 15px auto;
+.header-top .logo_pos {
+    margin: 20px auto 0px auto;
     width: 924px;
+}
+.logo_pos .barcode {
+    text-align: right;
 }
 .logo_pos .barcode img {
     width: 40px;
     height: 40px;
 }
+.header-top .barcode-big {
+    visibility: hidden;
+    border: 1px solid #B81F19;
+    margin-left: 4px;
+}
+.header-top .barcode-big img {
+    width: 90px;
+    height: 90px;
+}
 .logo_pos .teacher {
     font-size: 18px;
-    color: #ec2008;
+    color: #DE4240;
     font-weight: bold;
     font-style: italic;
 }
 .logo_pos .phone {
     font-size: 16px;
     font-weight: bold;
-    color: #ec2008;
+    color: #DE4240;
     font-style: italic;
 }
 /**菜单样式*/
 .nav-bg {
-    background-color: #ec2008;
+    background-color: #E24544;
     color: #fff;
+    width: 100%;
     height: 40px;
     line-height: 40px;
 }
@@ -162,7 +175,7 @@ body {
     background-color: #ff3300;
 }
 
-/**内容区*/
+/**内容区**/
 #content {
     width: 1104px;
     margin: 20px auto 40px auto;
@@ -217,6 +230,48 @@ body {
     color: #a6a6a6;
     font-size: 16px;
 }
+
+/*******首页展示*******/
+.sports-box li{
+    width: 200px;
+    padding: 40px 0px;
+    float: left;
+    background-color: #e0e0e0;
+    margin: 15px 38px;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+.sports-box li:hover {
+    background-color: #fe6c3e;
+}
+.teach-show {
+    margin-top: 35px;
+    border: 1px solid #bfbfbf;
+    position: relative;
+}
+.teach-show .teach-title {
+    position: relative;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -35px;
+    background-color: #f5f5f5;
+    width: 340px;
+    padding: 20px 30px;
+    text-align: center;
+    font-size: 22px;
+}
+.teach-show .img-show li {
+    width: 200px;
+    padding: 10px 10px;
+    float: left;
+}
+.teach-show .img-show img {
+    width: 200px;
+    height: 160px;
+    border-width: 0;
+}
+
 /**关于我们*/
 .right .introduce-us h2{
     text-align: center;
@@ -235,6 +290,101 @@ body {
     font-size: 14px;
     text-indent: 2em;
 }
+
+/**留言框*/
+#leave-message-box {
+    background-color: #f5f5f5;
+    position: fixed;
+    z-index: 100;
+    right: 0;
+    top: 50%;
+}
+.message-big-box{
+    margin-top: -142px;
+    width: 250px;
+    display: none;
+    background-color: #f5f5f5;
+    border: 1px solid #fe542d;
+}
+.box-title {
+    padding: 6px 0;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #fe542d;
+    background-image: linear-gradient(to bottom, #fe542d, #e44b2d);/*css3标准*/
+    background-image: -ms-linear-gradient(top, #fe542d, #e44b2d);/*IE9*/
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe542d', endColorstr='#e44b2d', GradientType='0');/*IE8-*/
+    background-image: -o-linear-gradient(top, #fe542d, green);/*Opera浏览器*/
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fe542d), color-stop(1, #e44b2d));/*saf4+和chrome浏览器*/
+}
+.box-title .title-text {
+    margin-left: 4px;
+    float: left;
+}
+.box-title .small-box {
+    font-size: 18px;
+    font-weight: bold;
+    float: right;
+    margin-right: 8px;
+    cursor: pointer;
+}
+.box-body li {
+    margin: 6px;
+}
+.box-body li textarea, .box-body li input[type='text'] {
+     border: 1px solid #acacac;
+     width: 220px;
+     height: 30px;
+     padding: 0 4px;
+}
+.box-body li textarea:focus, .box-body li input[type='text']:focus {
+    border: 1px solid #1e46fe;
+}
+.box-body li textarea {
+    height: 82px;
+    resize: none;
+    overflow: auto;/**IE9下多行文本框默认有滚动条*/
+    word-wrap: break-word;/**长英文单词自动换行*/
+}
+.box-body .btn-message {
+    width: 228px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    background: #F45E2C url('../image/button/btn_bg.gif') repeat-x;
+    border: 1px solid #e44b2d;
+    cursor: pointer;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+.box-body .btn-message:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+.box-body li input.invalid-message {
+    border: 1px solid red;
+}
+.message-small-box {
+    margin-top: -46px;
+    padding: 4px 6px;
+    background-color: #fe542d;
+    background-image: linear-gradient(to bottom, #fe542d, #e44b2d);/*css3标准*/
+    background-image: -ms-linear-gradient(top, #fe542d, #e44b2d);/*IE9*/
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe542d', endColorstr='#e44b2d', GradientType='0');/*IE8-*/
+    background-image: -o-linear-gradient(top, #fe542d, green);/*Opera浏览器*/
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fe542d), color-stop(1, #e44b2d));/*saf4+和chrome浏览器*/
+}
+.message-small-box h2 {
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+}
+
 
 /**footer*/
 #footer {

@@ -2,8 +2,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <#-- 解决IE9出现的页面兼容问题-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><#-- 解决IE9出现的页面兼容问题-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="成都伟业星恒体育文化传播有限公司">
     <title>${html_title}</title>
     <link href="${webRoot}/resources/css/common/base.css" type="text/css" rel="stylesheet" />
     <link href="${webRoot}/resources/css/index.css" type="text/css" rel="stylesheet" />
@@ -11,21 +12,29 @@
     <script src="${webRoot}/resources/jslib/index.js"></script>
 </head>
 <body>
+
 <div class="header">
-    <div class="logo_pos clearfix">
-        <div style="float:left;"><h2 class="logo_name">成都伟业星恒体育文化传播有限公司</h2></div>
-        <div style="float:right;margin-right: 16px;border: 1px solid red;">
-            <div class="barcode">
-                <img src="${webRoot}/resources/image/barcode.png" />
+    <div class="header-top">
+        <div class="logo_pos clearfix">
+            <div style="float:left;">
+                <h2 class="logo_name">成都伟业星恒体育文化传播有限公司</h2>
             </div>
-            <div style="border: 1px solid red;">
-                <span class="teacher">何老师：</span>
-                <span class="phone">13739487852</span>
+            <div style="float:right;" class="barcode-big">
+                <img src="${webRoot}/resources/image/barcode.png" id="barcode_big_img" />
+            </div>
+            <div style="float:right;">
+                <div class="barcode">
+                    <img src="${webRoot}/resources/image/barcode.png" id="barcode_img" />
+                </div>
+                <div>
+                    <span class="teacher">何老师：</span>
+                    <span class="phone">13739487852</span>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="nav-bg" style="background: #f33634 url('${webRoot}/resources/image/menu-bg.png') repeat-x">
+    <div class="nav-bg" style="background: #f33634 url('${webRoot}/resources/image/menu_bg.png') repeat-x">
         <div class="nav-menu">
         <#--<ul class="clearfix">
                     <#list menuList as menu>
