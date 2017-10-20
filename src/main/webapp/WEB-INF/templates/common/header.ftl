@@ -17,7 +17,7 @@
     <div class="header-top">
         <div class="logo_pos clearfix">
             <div style="float:left;">
-                <h2 class="logo_name">成都伟业星恒体育文化传播有限公司</h2>
+                <a class="logo_name">成都伟业星恒体育文化传播有限公司</a>
             </div>
             <div style="float:right;" class="barcode-big">
                 <img src="${webRoot}/resources/image/barcode.png" id="barcode_big_img" />

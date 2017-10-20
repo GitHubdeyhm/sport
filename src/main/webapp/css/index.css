@@ -5,6 +5,7 @@ body {
     color: #DE4240;
     font-size: 26px;
     font-weight: bold;
+    background: url('../image/logo.png') no-repeat;
 }
 .header-top .logo_pos {
     margin: 20px auto 0px auto;
@@ -243,12 +244,12 @@ body {
     cursor: pointer;
 }
 .sports-box li:hover {
-    background-color: #fe6c3e;
+    background-color: #ae180a;
+    color: #fff;
 }
 .teach-show {
     margin-top: 35px;
     border: 1px solid #bfbfbf;
-    position: relative;
 }
 .teach-show .teach-title {
     position: relative;
@@ -261,10 +262,30 @@ body {
     text-align: center;
     font-size: 22px;
 }
+.teach-show .img-show {
+    position: relative;
+    left: 0;
+    overflow: hidden;
+    height: 180px;
+}
 .teach-show .img-show li {
     width: 200px;
-    padding: 10px 10px;
-    float: left;
+    /*padding: 10px 10px;*/
+    position: absolute;
+    left: 0;
+}
+.teach-show .img-show li .img-note {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    padding: 2px 0;
+    width: 100%;
+    background-color: #2e2e2e;
+    color: #fff;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    display: none;
 }
 .teach-show .img-show img {
     width: 200px;

@@ -69,6 +69,16 @@ public class IndexController {
         return getNav(menuCode, "front/enroller-info");
     }
 
+    @GetMapping("/sport")
+    public ModelAndView sport(@RequestParam("mc") String menuCode) {
+        return getNav(menuCode, "front/sport");
+    }
+
+    @GetMapping("/tradition")
+    public ModelAndView tradition(@RequestParam("mc") String menuCode) {
+        return getNav(menuCode, "front/tradition");
+    }
+
 
     private ModelAndView getNav(String menuCode, String viewName) {
         ModelAndView mav = new ModelAndView(viewName);
