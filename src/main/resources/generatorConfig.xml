@@ -32,6 +32,7 @@
         <!--<table tableName="t_uums_menu" domainObjectName="MenuEntity"></table>
         <table tableName="t_base_dict" domainObjectName="BaseDictEntity"></table>-->
         <table tableName="t_leave_message" domainObjectName="LeaveMessageEntity"></table>
+        <table tableName="t_news" domainObjectName="NewsEntity"></table>
 
     </context>
 </generatorConfiguration>

@@ -86,6 +86,11 @@ $(function () {
         }
     });
 
+    //图片定时
+    var imgTimer = window.setInterval(function(){
+        $("#main-area .next").trigger("click");
+    }, 5000);
+
     //留言表单
     $("#message_button").click(function() {
         var message = $("#message_message").val();

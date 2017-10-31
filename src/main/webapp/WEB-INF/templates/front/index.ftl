@@ -2,11 +2,34 @@
 
 <div id="content">
     <div class="sports-box">
+        <div class="sports-title"><span>热门报名</span></div>
         <ul class="clearfix">
         <#list ["田径", "篮球", "足球", "跆拳道", "网球", "柔道", "摔跤", "散打", "武术", "排球"] as x >
             <li><a href="#">${x}</a></li>
         </#list>
         </ul>
+    </div>
+
+    <div class="video-news clearfix">
+        <div class="video-box">
+            <div class="video-title">
+                <span>视频展示</span>
+            </div>
+            <h2>暂无视频展示</h2>
+        </div>
+        <div class="news-box">
+            <div class="news-title"><span>新闻动态</span></div>
+            <ul class="news-list">
+                <li><a href="#">新闻标题体育新闻</a></li>
+                <li><a href="#">新闻标题</a></li>
+                <li><a href="#">新闻标题</a></li>
+                <li><a href="#">新闻标题</a></li>
+                <li><a href="#">新闻标题</a></li>
+                <li><a href="#">新闻标题</a></li>
+                <li><a href="#">新闻标题</a></li>
+                <li><a href="#">新闻标题</a></li>
+            </ul>
+        </div>
     </div>
 
     <div class="teach-show">

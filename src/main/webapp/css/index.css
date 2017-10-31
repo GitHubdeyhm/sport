@@ -1,15 +1,34 @@
 body {
     background-color: #f5f5f5;
 }
+.header-top .top-title {
+    background-color: #e5e5e5;
+    padding: 4px 0;
+}
+.header-top .top-title h2 {
+    width: 1104px;
+    text-align: right;
+    font-size: 14px;
+    font-weight: normal;
+    color: #686868;
+}
+.header-top .logo_pos {
+    margin: 0px auto 0px auto;
+    width: 1104px;
+}
+.header-top .logo_pos .logo-pic {
+    /*width: 290px;*/
+    min-height: 90px;
+    background: url('../image/logo.png') no-repeat;
+    float: left;
+}
 .header-top .logo_pos .logo_name {
     color: #DE4240;
     font-size: 26px;
     font-weight: bold;
-    background: url('../image/logo.png') no-repeat;
-}
-.header-top .logo_pos {
-    margin: 20px auto 0px auto;
-    width: 924px;
+    margin-left: 310px;
+    margin-top: 26px;
+    display: block;
 }
 .logo_pos .barcode {
     text-align: right;
@@ -31,7 +50,6 @@ body {
     font-size: 18px;
     color: #DE4240;
     font-weight: bold;
-    font-style: italic;
 }
 .logo_pos .phone {
     font-size: 16px;
@@ -46,6 +64,7 @@ body {
     width: 100%;
     height: 40px;
     line-height: 40px;
+    margin-top: 12px;
 }
 .nav-menu {
     position: relative;
@@ -60,6 +79,7 @@ body {
 .nav-menu .nav-li {
     position: relative;
     float: left;
+    border-right: 1px solid #B81F19;
 }
 .nav-menu .nav-li a {
     color: #fff;
@@ -85,7 +105,7 @@ body {
 .show-area {
     position: relative;
     width: 1104px;
-    height: 360px;
+    height: 530px;
     margin: 0px auto 16px auto;
     overflow: hidden;
 }
@@ -103,7 +123,7 @@ body {
 }
 .img-list a img {
     width: 1104px;
-    height: 360px;
+    height: 530px;
     border-width: 0;
 }
 
@@ -113,27 +133,28 @@ body {
 .main-area .button span {
     position: absolute;
     z-index: 10;
-    top: 120px;
+    top: 50%;
+    margin-top: -23px;
     display: block;
-    width: 40px;
-    height: 54px;
-    line-height: 54px;
-    vertical-align: middle;
-    font-size: 38px;
-    font-weight: 100;
+    width: 32px;
+    height: 46px;
     color: #fff;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    opacity: 0.3;
+    filter: alpha(opacity=30);
 }
 .main-area .button span:hover {
-    background-color: rgba(0 ,0, 0, 0.6);
+    opacity: 1.0;
+    filter: alpha(opacity=100);
 }
 .main-area .button span.last {
     left: 10px;
+    background: #464646 url('../image/arrowl.png') no-repeat 6px 6px;
 }
 .main-area .button span.next {
-    right: 15px;
+    right: 10px;
+    background: #464646 url('../image/arrowr.png') no-repeat 6px 6px;
 }
 .main-area .dot-wrap {
     position: absolute;
@@ -233,20 +254,77 @@ body {
 }
 
 /*******首页展示*******/
+.sports-box {
+    border: 1px solid #bfbfbf;
+}
 .sports-box li{
     width: 200px;
     padding: 40px 0px;
     float: left;
     background-color: #e0e0e0;
-    margin: 15px 38px;
+    margin: 15px 37px;
     text-align: center;
     font-size: 20px;
     cursor: pointer;
+    color: #282828;
 }
 .sports-box li:hover {
     background-color: #ae180a;
     color: #fff;
 }
+.sports-box li a {
+    color: #282828;
+}
+.sports-box li a:hover {
+    color: #fff;
+}
+
+.video-news {
+    height: 280px;
+    border: 1px solid #bfbfbf;
+    margin: 20px 0;
+}
+.video-box {
+    width: 550px;
+    float: left;
+    border-right: 1px solid #bfbfbf;
+    height: 100%;
+}
+.news-box {
+    width: 550px;
+    float: right;
+}
+.video-box .video-title, .news-box .news-title, .sports-box .sports-title {
+    border-bottom: 1px solid #bfbfbf;
+    background: #b81f19;
+    line-height: 40px;
+}
+.video-box h2 {
+    color: #c6c6c6;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+
+}
+.video-box .video-title span, .news-box .news-title span, .sports-box .sports-title span {
+    background: #b81f19;
+    height: 40px;
+    width: 120px;
+    display: inline-block;
+    color: #fff;
+    padding-left: 10px;
+}
+.news-box li {
+    list-style: disc;
+    margin-left: 16px;
+}
+.news-box li a, .news-box li a:visited {
+    color: #282828;
+}
+.news-box li a:hover {
+    color: #b81f19;
+}
+
 .teach-show {
     margin-top: 35px;
     border: 1px solid #bfbfbf;
@@ -405,6 +483,68 @@ body {
     color: #fff;
     cursor: pointer;
 }
+
+/*******少儿健康********/
+.health-box {
+    font-size: 16px;
+    width: 900px;
+    margin: 20px auto;
+    border: 1px solid #bfbfbf;
+    padding: 20px 24px;
+}
+.health-box .bold-red {
+    font-weight: bold;
+    color: red;
+}
+.health-topic h2 {
+    font-weight: bold;
+    color: #DE4240;
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 12px;
+}
+.health-topic h2 em {
+    font-style: normal;
+}
+.health-topic .health-calc li {
+    margin: 4px 0;
+    text-align: center;
+}
+.health-topic .health-calc label {
+    letter-spacing: 8px;
+}
+.health-topic .health-calc em {
+    font-style: normal;
+}
+.health-topic .health-calc input[type='text'] {
+    height: 28px;
+    line-height: 28px;
+    padding-left: 4px;
+    vertical-align: middle;
+    width: 170px;
+    font-size: 12px;
+    border: 1px solid #b5cadf;
+    color: #585858;
+    margin: 4px 10px;
+}
+.health-topic table, .health-rules table {
+    border: 1px solid #DE4240;
+    border-collapse: collapse;
+    margin: auto;
+}
+.health-topic table th, .health-rules table th, .health-topic table td,
+.health-rules table td {
+    border: 1px solid #DE4240;
+    padding: 4px 20px;
+    white-space: nowrap;
+    text-align: center;
+}
+.health-box .health-rules p {
+    text-indent: 2em;
+}
+
+
+
 
 
 /**footer*/

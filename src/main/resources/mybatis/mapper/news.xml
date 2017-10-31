@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.sport.dao.manage.NewsDao">
+
+    <!-- 不查询出新闻内容 -->
+    <select id="find" parameterType="com.sport.entity.manage.NewsEntity" resultType="com.sport.entity.manage.NewsEntity">
+        SELECT id, news_title, news_sub_title, is_publish, publish_time, create_time
+        FROM t_news
+        <where>
+            <if test="isPublish != null">
+                AND is_publish = #{isPublish}
+            </if>
+        </where>
+        ORDER BY create_time desc
+    </select>
+</mapper>

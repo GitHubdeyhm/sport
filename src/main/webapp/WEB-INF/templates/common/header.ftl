@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"><#-- 解决IE9出现的页面兼容问题-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="descripion" content="成都伟业星恒体育文化传播有限公司">
     <meta name="keywords" content="成都伟业星恒体育文化传播有限公司">
     <title>${html_title}</title>
     <link href="${webRoot}/resources/css/common/base.css" type="text/css" rel="stylesheet" />
@@ -15,13 +16,16 @@
 
 <div class="header">
     <div class="header-top">
+        <div class="top-title">
+            <h2>全国最大的田径培训基地</h2>
+        </div>
         <div class="logo_pos clearfix">
-            <div style="float:left;">
+            <div class="logo-pic">
                 <a class="logo_name">成都伟业星恒体育文化传播有限公司</a>
             </div>
-            <div style="float:right;" class="barcode-big">
+            <#--<div style="float:right;" class="barcode-big">
                 <img src="${webRoot}/resources/image/barcode.png" id="barcode_big_img" />
-            </div>
+            </div>-->
             <div style="float:right;">
                 <div class="barcode">
                     <img src="${webRoot}/resources/image/barcode.png" id="barcode_img" />
@@ -30,24 +34,20 @@
                     <span class="teacher">何老师：</span>
                     <span class="phone">13739487852</span>
                 </div>
+                <div>
+                    <span class="teacher">武老师：</span>
+                    <span class="phone">13739487852</span>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="nav-bg" style="background: #f33634 url('${webRoot}/resources/image/menu_bg.png') repeat-x">
-        <div class="nav-menu">
-        <#--<ul class="clearfix">
-                    <#list menuList as menu>
-                        <li>
-                            <a href="#">${menu.menuName}</a>
-                        </li>
-                    </#list>
-                </ul>-->
-        </div>
+        <div class="nav-menu"></div>
     </div>
 </div>
 
-<div class="show-area">
+<div class="show-area" style="display: none;">
     <!-- 展示图片的布局 -->
     <div class="img-list" id="img-list">
         <ul>
@@ -78,8 +78,8 @@
     <div class="main-area" id="main-area">
         <#-- 左右按钮 -->
         <div class="button">
-            <span class="last">&lt;</span>
-            <span class="next">&gt;</span>
+            <span class="last"></span>
+            <span class="next"></span>
         </div>
         <#--<div class="dot-wrap">
             <!-- 小圆点 &ndash;&gt;
