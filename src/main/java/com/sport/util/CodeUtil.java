@@ -28,7 +28,7 @@ public class CodeUtil {
         int codeVal = Integer.parseInt(maxCode) + 1;
         //编码超出了最大范围，返回null
         if (codeVal > MAX_CODE) {
-            MessageHelper.message("code.max.range");
+            MessageHelper.throwMessage("code.max.range");
         }
         if (StringUtil.isBlank(parentCode)) {
             parentCode = "";

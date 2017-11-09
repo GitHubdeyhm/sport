@@ -1,8 +1,52 @@
 <#include "common/header.ftl" />
 
+<div class="show-area">
+    <!-- 展示图片的布局 -->
+    <div class="img-list" id="img-list">
+        <ul>
+            <li>
+                <a href="javascript:void(0);">
+                    <img src="${webRoot}/resources/image/show/image_1.jpg" />
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    <img src="${webRoot}/resources/image/show/image_2.jpg" />
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    <img src="${webRoot}/resources/image/show/image_3.jpg" />
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    <img src="${webRoot}/resources/image/show/image_4.jpg" />
+                </a>
+            </li>
+        </ul>
+    </div>
+
+<#-- 左右按钮和当前图片的位置 -->
+    <div class="main-area" id="main-area">
+    <#-- 左右按钮 -->
+        <div class="button">
+            <span class="last"></span>
+            <span class="next"></span>
+        </div>
+    <#--<div class="dot-wrap">
+        <!-- 小圆点 &ndash;&gt;
+        <ul class="img-nav clearfix" id="img-nav"></ul>
+    </div>-->
+    </div>
+</div>
+
 <div id="content">
     <div class="sports-box">
-        <div class="sports-title"><span>热门报名</span></div>
+        <div class="sports-title">
+            <span>热门报名</span>
+            <a href="#">更多&gt;&gt;</a>
+        </div>
         <ul class="clearfix">
         <#list ["田径", "篮球", "足球", "跆拳道", "网球", "柔道", "摔跤", "散打", "武术", "排球"] as x >
             <li><a href="#">${x}</a></li>
@@ -14,12 +58,24 @@
         <div class="video-box">
             <div class="video-title">
                 <span>视频展示</span>
+                <a href="#">更多&gt;&gt;</a>
             </div>
-            <h2>暂无视频展示</h2>
+            <#--<h2>暂无视频展示</h2>-->
+            <video id="video-show" class="video-js vjs-default-skin vjs-big-play-centered"
+                   controls preload="none" width="550" height="280"
+                   poster="${webRoot}/resources/image/show/image_1.jpg"
+                   data-setup="{}">
+                <source src="${webRoot}/resources/upload/qsmy.mp4" type='video/mp4' />
+            </video>
         </div>
         <div class="news-box">
-            <div class="news-title"><span>新闻动态</span></div>
+            <div class="news-title">
+                <span>新闻动态</span>
+                <a href="#">更多&gt;&gt;</a>
+            </div>
             <ul class="news-list">
+                <li><a href="#">新闻标题体育新闻</a></li>
+                <li><a href="#">新闻标题体育新闻</a></li>
                 <li><a href="#">新闻标题体育新闻</a></li>
                 <li><a href="#">新闻标题</a></li>
                 <li><a href="#">新闻标题</a></li>
@@ -41,7 +97,11 @@
 <#include "common/leave-message.ftl" >
 
 <#include "common/footer.ftl" />
+
+<link href="${webRoot}/resources/jslib/video/css/video-js.css" rel="stylesheet" type="text/css">
+<script src="${webRoot}/resources/jslib/video/js/video.min.js"></script>
 <script type="text/javascript">
+    videojs.options.flash.swf = "video-js.swf";
     $(function () {
         //设置展示图片区域的动态样式
         var isMove = true;
@@ -84,6 +144,11 @@
                 }
             }, 200);
         }
+    });
+    //视频播放
+    videojs("video-show").ready(function(){
+        var player = this;
+        //myPlayer.play();
     });
 </script>
 </body>

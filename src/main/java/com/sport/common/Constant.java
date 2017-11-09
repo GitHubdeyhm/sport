@@ -23,4 +23,6 @@ public interface Constant {
 
     String TREENODE_ROOT_ID = "-1";
     String TREENODE_ROOT_TEXT = "请选择";
+
+    String MENU_CODE_FORMAT = "%03d";
 }

@@ -22,15 +22,20 @@ $(function () {
                 var menuStr = '<ul class="nav-ul clearfix">';
                 for (var i = 0; i < menu1.length; i++) {
                     var m1 = menu1[i];
+                    var codeUrl1 = m1.menuUrl;
+                    if (m1.menuCode != '001003') {
+                        codeUrl1 += "/" + parseInt(m1.menuCode);
+                    }
                     menuStr += '<li class="nav-li">'+
-                        '<a class="nav-a" href="'+m1.menuUrl+'?mc='+m1.menuCode+'">'+m1.menuName+'</a>';
+                        '<a class="nav-a" href="'+codeUrl1+'">'+m1.menuName+'</a>';
                     var childMenuStr = '';
                     for (var j = 0; j < menu2.length; j++) {
                         var m2 = menu2[j];
                         var menuCode = m2.menuCode;
                         if (m1.menuCode == menuCode.substring(0, menuCode.length-3)) {
+                            var codeUrl2 = m2.menuUrl + "/" + parseInt(menuCode);
                             childMenuStr += '<li class="">'+
-                                '<a href="'+m2.menuUrl+'?mc='+m2.menuCode+'">'+m2.menuName+'</a></li>';
+                                '<a href="'+codeUrl2+'">'+m2.menuName+'</a></li>';
                         }
                     }
                     if (childMenuStr == '') {

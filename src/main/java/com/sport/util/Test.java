@@ -7,7 +7,7 @@ package com.sport.util;
 public class Test {
 
     public static void main(String[] args) {
-        String formateStr = String.format("%03d", 11112);
+        String formateStr = String.format("%03d", 12);
         System.out.println(formateStr);
     }
 }

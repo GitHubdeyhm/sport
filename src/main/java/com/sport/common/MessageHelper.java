@@ -22,11 +22,11 @@ public class MessageHelper {
      * 提示信息
      * @date 2017-09-23 22:37
      */
-    public static void message(String key) {
+    public static void throwMessage(String key) {
         throw new ServiceException(getMessage(key));
     }
 
-    public static void message(Message msg) {
+    public static void throwMessage(Message msg) {
         throw new ServiceException(getMessage(msg.getKey()));
     }
 

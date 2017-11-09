@@ -22,18 +22,23 @@
         <div class="health-topic">
             <h2>主题：运动快乐，享<em>瘦</em>生活</h2>
             <div style="text-align:center;"><img src="${webRoot}/resources/image/health.png" /></div>
-            <div>BMI测试：<strong>BMI = 体重(公斤) / 身高²</strong></div>
+            <div style="text-align:center;">BMI测试：<strong>BMI = 体重(公斤) / 身高(米)²</strong></div>
             <div style="text-align:center;color:#dc4bee;">快看看自己的BMI是否在理想范围吧！</div>
             <ul class="health-calc">
                 <li>
-                    <label>身高</label><input type="text" /><em>cm</em>
-                    <button>开始计算</button>
+                    <label>身高</label>
+                    <input type="text" placeholder="请输入身高" id="height_input" /><em>cm</em>
+                    <span class="clac-btn" id="bmi-btn">开始计算</span>
                 </li>
                 <li>
-                    <label>体重</label><input type="text" /><em>kg</em>
-                    <button>清楚重算</button>
+                    <label>体重</label>
+                    <input type="text" placeholder="请输入体重" id="weight_input" /><em>kg</em>
+                    <span class="clac-btn btn-clear" id="btn-clear-btn">清楚重算</span>
                 </li>
-                <li>你的BMI为</li>
+                <li>
+                    <span>你的BMI为</span>
+                    <span id="health_bmi"></span>
+                </li>
             </ul>
             <table cellpadding="0">
                 <thead>
@@ -46,21 +51,21 @@
                 <tbody>
                 <tr>
                     <td>体重过轻</td>
-                    <td>BM&nbsp;&lt;&nbsp;18.5</td>
+                    <td>BMI&nbsp;&lt;&nbsp;18.5</td>
                     <td>-</td>
                 </tr>
                 <tr>
                     <td>正常范围</td>
-                    <td>18.5&nbsp;&lt;&nbsp;BMI&nbsp;&lt;&nbsp;24</td>
+                    <td>18.5&nbsp;≤&nbsp;BMI&nbsp;&lt;&nbsp;24</td>
                     <td>-</td>
                 </tr>
                 <tr>
                     <td>异常范围</td>
-                    <td>
-                        <div>过重：24&nbsp;&lt;&nbsp;27</div>
-                        <div>轻度肥胖：27&nbsp;&lt;&nbsp;30</div>
-                        <div>中度肥胖：30&nbsp;&lt;&nbsp;35</div>
-                        <div>重度肥胖：BMI&nbsp;&gt;&nbsp;35</div>
+                    <td class="health-over" style="text-align:left;">
+                        <div><span>过重：</span>24&nbsp;≤&nbsp;BMI&nbsp;&lt;&nbsp;27</div>
+                        <div><span>轻度肥胖：</span>27&nbsp;≤&nbsp;BMI&nbsp;&lt;&nbsp;30</div>
+                        <div><span>中度肥胖：</span>30&nbsp;≤&nbsp;BMI&nbsp;&lt;&nbsp;35</div>
+                        <div><span>重度肥胖：</span>BMI&nbsp;≥&nbsp;35</div>
                     </td>
                     <td>-</td>
                 </tr>
@@ -150,8 +155,25 @@
 
 <#include "common/footer.ftl" />
 <script type="text/javascript">
+    //正整数
+    var positiveNum = /^[1-9][0-9]*$/;
     $(function () {
-        //loadNavMenu("${code}");
+        $("#bmi-btn").click(function () {
+            $("#health_bmi").text("");
+            var weight = $.trim($("#weight_input").val());
+            var height = $.trim($("#height_input").val());
+            var isWeightNum = positiveNum.test(weight);
+            var isHeightNum = positiveNum.test(height);
+            if (isWeightNum && isHeightNum) {
+                var bmi = weight / (height * height) * 10000;
+                $("#health_bmi").text(bmi.toFixed(2));
+            }
+        });
+
+        $("#btn-clear-btn").click(function () {
+            $("#weight_input").val("");
+            $("#height_input").val("").focus();
+        });
     });
 </script>
 </body>

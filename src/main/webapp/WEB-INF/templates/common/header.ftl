@@ -47,8 +47,8 @@
     </div>
 </div>
 
-<div class="show-area" style="display: none;">
-    <!-- 展示图片的布局 -->
+<#--<div class="show-area">
+    <!-- 展示图片的布局 &ndash;&gt;
     <div class="img-list" id="img-list">
         <ul>
             <li>
@@ -74,16 +74,16 @@
         </ul>
     </div>
 
-    <#-- 左右按钮和当前图片的位置 -->
+    &lt;#&ndash; 左右按钮和当前图片的位置 &ndash;&gt;
     <div class="main-area" id="main-area">
-        <#-- 左右按钮 -->
+        &lt;#&ndash; 左右按钮 &ndash;&gt;
         <div class="button">
             <span class="last"></span>
             <span class="next"></span>
         </div>
-        <#--<div class="dot-wrap">
+        &lt;#&ndash;<div class="dot-wrap">
             <!-- 小圆点 &ndash;&gt;
             <ul class="img-nav clearfix" id="img-nav"></ul>
-        </div>-->
+        </div>&ndash;&gt;
     </div>
-</div>
+</div>-->

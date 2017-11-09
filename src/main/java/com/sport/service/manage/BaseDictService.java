@@ -25,7 +25,7 @@ public class BaseDictService {
             baseDictDao.save(dict);
         } else {
             if (!dict.getIsEdit()) {
-                MessageHelper.message("dict_not_edit");
+                MessageHelper.throwMessage("dict_not_edit");
             }
             baseDictDao.update(dict);
         }

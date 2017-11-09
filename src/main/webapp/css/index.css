@@ -255,7 +255,7 @@ body {
 
 /*******首页展示*******/
 .sports-box {
-    border: 1px solid #bfbfbf;
+    border: 1px solid #e0e0e0;;
 }
 .sports-box li{
     width: 200px;
@@ -280,8 +280,8 @@ body {
 }
 
 .video-news {
-    height: 280px;
-    border: 1px solid #bfbfbf;
+    height: 320px;
+    border: 1px solid #e0e0e0;
     margin: 20px 0;
 }
 .video-box {
@@ -295,24 +295,35 @@ body {
     float: right;
 }
 .video-box .video-title, .news-box .news-title, .sports-box .sports-title {
-    border-bottom: 1px solid #bfbfbf;
-    background: #b81f19;
     line-height: 40px;
+    height: 40px;
+    position: relative;
+    background: #3483c7
 }
 .video-box h2 {
     color: #c6c6c6;
     font-size: 16px;
     text-align: center;
     margin-top: 20px;
-
 }
 .video-box .video-title span, .news-box .news-title span, .sports-box .sports-title span {
-    background: #b81f19;
+    background: url("../image/tab4.png") no-repeat;
     height: 40px;
-    width: 120px;
+    width: 192px;
     display: inline-block;
-    color: #fff;
-    padding-left: 10px;
+    color: #ececec;
+    font-weight: bold;
+    position: absolute;
+    top: -10px;
+    text-align: center;
+}
+.video-box .video-title a, .news-box .news-title a, .sports-box .sports-title a {
+    position: absolute;
+    right: 10px;
+}
+.video-box .video-title a:hover, .news-box .news-title a:hover,
+.sports-box .sports-title a:hover {
+    color: red;
 }
 .news-box li {
     list-style: disc;
@@ -327,7 +338,7 @@ body {
 
 .teach-show {
     margin-top: 35px;
-    border: 1px solid #bfbfbf;
+    border: 1px solid #e0e0e0;
 }
 .teach-show .teach-title {
     position: relative;
@@ -489,7 +500,7 @@ body {
     font-size: 16px;
     width: 900px;
     margin: 20px auto;
-    border: 1px solid #bfbfbf;
+    border: 1px solid #e0e0e0;
     padding: 20px 24px;
 }
 .health-box .bold-red {
@@ -527,6 +538,33 @@ body {
     color: #585858;
     margin: 4px 10px;
 }
+.health-topic .health-calc input[type='text']:focus{
+    border-color: rgba(82,168,236,0.8);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+}
+.health-topic .clac-btn {
+    background: #EF5320 url('../image/button/btn_bg.gif') repeat;
+    width: 80px;
+    height: 30px;
+    display: inline-block;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+.health-topic .btn-clear {
+    background: #1E9ED8 url('../image/button/btn_bg.gif') repeat 0 30px;
+}
+#health_bmi {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+}
 .health-topic table, .health-rules table {
     border: 1px solid #DE4240;
     border-collapse: collapse;
@@ -538,6 +576,11 @@ body {
     padding: 4px 20px;
     white-space: nowrap;
     text-align: center;
+}
+.health-topic table .health-over span {
+    width: 88px;
+    text-align: right;
+    display: inline-block;
 }
 .health-box .health-rules p {
     text-indent: 2em;

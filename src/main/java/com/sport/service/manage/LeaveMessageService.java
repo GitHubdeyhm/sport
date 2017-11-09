@@ -27,21 +27,21 @@ public class LeaveMessageService {
         String msg = message.getMessage();
         //数据验证
         if (StringUtil.isBlank(msg)) {
-            MessageHelper.message("leave_message_msg_empty");
+            MessageHelper.throwMessage("leave_message_msg_empty");
         }
         if (msg.length() > 140) {
-            MessageHelper.message("leave_message_msg_too_long");
+            MessageHelper.throwMessage("leave_message_msg_too_long");
         }
         String phone = message.getPhone();
         boolean isValidPhone = Pattern.matches("^1[3-8]\\d{9}$", phone);
         if (!isValidPhone) {
-            MessageHelper.message("leave_message_phone_invalid");
+            MessageHelper.throwMessage("leave_message_phone_invalid");
         }
         if (StringUtil.getLength(message.getUserName()) > 20) {
-            MessageHelper.message("leave_message_username_too_long");
+            MessageHelper.throwMessage("leave_message_username_too_long");
         }
         if (StringUtil.getLength(message.getMail()) > 20) {
-            MessageHelper.message("leave_message_mail_too_long");
+            MessageHelper.throwMessage("leave_message_mail_too_long");
         }
         message.setCreateTime(new Date());
         leaveMessageDao.save(message);

@@ -5,13 +5,9 @@ package com.sport.common.exception;
  * @author huangxl
  * @date 2017-09-18 22:31
  */
-public class ServiceException extends RuntimeException{
+public class ServiceException extends RuntimeException {
 
     private int code;
-
-    public ServiceException () {
-        super();
-    }
 
     public ServiceException(String message) {
         super(message);

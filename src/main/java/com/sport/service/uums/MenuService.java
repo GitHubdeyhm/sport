@@ -28,7 +28,7 @@ public class MenuService {
 
     public void saveOrUpdate(MenuEntity menu, String parentCode) {
         if (StringUtil.isBlank(menu.getMenuName())) {
-            MessageHelper.message("menu_name_empty");
+            MessageHelper.throwMessage("menu_name_empty");
         }
         if (menu.getId() == null) {
             menu.setMenuProjectCode("p001");
@@ -37,7 +37,7 @@ public class MenuService {
         } else {
             MenuEntity updateMenu = menuDao.findById(menu.getId());
             if (updateMenu == null) {
-                MessageHelper.message("menu_not_exist");
+                MessageHelper.throwMessage("menu_not_exist");
             }
             updateMenu.setMenuMark(menu.getMenuMark());
             updateMenu.setMenuName(menu.getMenuName());

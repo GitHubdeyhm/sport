@@ -66,6 +66,10 @@ public class MenuController {
         return ResponseResult.successResult();
     }
 
+    /**
+     * 前台页面菜单展示
+     * @date 2017-11-01 23:00
+     */
     @PostMapping("/showMenu")
     @ResponseBody
     public ResponseResult<List<MenuEntity>> showMenu() {
