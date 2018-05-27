@@ -43,7 +43,7 @@ public class ChildHealthController {
         mav.addObject("code", menuCode);
         mav.addObject("menuList", menuService.findForNav(menuCode));
         MenuEntity menu = new MenuEntity(true);
-        if (!StringUtil.isBlank(menuCode)) {
+        if (!StringUtil.isNullOrEmpty(menuCode)) {
             int level2 = CodeUtil.CODE_LEVEL_LENGTH * 2;//二级编码长度
             if (menuCode.length() >= level2) {
                 menu.setMenuCode(menuCode.substring(0,level2)+"%");

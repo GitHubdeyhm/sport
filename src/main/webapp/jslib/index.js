@@ -93,7 +93,7 @@ $(function () {
 
     //图片定时
     var imgTimer = window.setInterval(function(){
-        $("#main-area .next").trigger("click");
+       // $("#main-area .next").trigger("click");
     }, 5000);
 
     //留言表单
@@ -129,14 +129,13 @@ $(function () {
     });
     /************header****************/
     //头部二维码
-    $("#barcode_img").hover(
+    $(".barcode_img").hover(
         function () {
             $(this).css("cursor", "pointer");
-            $("#barcode_big_img").parent("div").css({"visibility": "visible"});
+            $(".big-barcode").children("img").css({"visibility": "visible"});
         },
         function () {
-            $(this).css("cursor", "default");
-            $("#barcode_big_img").parent("div").css({"visibility": "hidden"});
+            $(".big-barcode").children("img").css({"visibility": "hidden"});
         }
     );
     /************留言框****************/

@@ -1,11 +1,18 @@
 package com.sport.common;
 
 /**
- * 常量
+ * 项目常量定义
  * @author huangxl
  * @date 2017-09-17 23:20
  */
 public interface Constant {
+
+    String CHARSET_UTF8 = "UTF-8";
+
+    /**响应请求成功的代码*/
+    int SUCCESS_CODE = 1;
+    /**响应请求失败的默认代码*/
+    int ERROR_CODE = 0;
 
     /**响应结果信息的键*/
     String MESSAGE_KEY = "msg";

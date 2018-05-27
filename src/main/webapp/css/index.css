@@ -16,13 +16,15 @@ body {
     margin: 0px auto 0px auto;
     width: 1104px;
 }
-.header-top .logo_pos .logo-pic {
-    /*width: 290px;*/
+.header-top .logo_pos .logo-bg {
+    width: 290px;
     min-height: 90px;
     background: url('../image/logo.png') no-repeat;
     float: left;
+    color: #f5f5f5;
+    font-size: 0;
 }
-.header-top .logo_pos .logo_name {
+.header-top .logo_pos .logo-name {
     color: #DE4240;
     font-size: 26px;
     font-weight: bold;
@@ -30,14 +32,35 @@ body {
     margin-top: 26px;
     display: block;
 }
-.logo_pos .barcode {
-    text-align: right;
+.logo_pos .contact-teacher {
+    line-height: 40px;
+    height: 40px;
+    vertical-align: middle;
 }
-.logo_pos .barcode img {
+.logo_pos .contact-teacher img {
     width: 40px;
     height: 40px;
+    float: left;
+    margin: 0px 4px;
 }
-.header-top .barcode-big {
+.logo_pos .contact-teacher span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #DE4240;
+    float: left;
+}
+.logo_pos .big-barcode img {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #DE4240;
+}
+.english-text {
+    font-size: 16px;
+    color: #757575;
+    letter-spacing: 2px;
+}
+
+/*.header-top .barcode-big {
     visibility: hidden;
     border: 1px solid #B81F19;
     margin-left: 4px;
@@ -45,41 +68,25 @@ body {
 .header-top .barcode-big img {
     width: 90px;
     height: 90px;
-}
-.logo_pos .teacher {
-    font-size: 18px;
-    color: #DE4240;
-    font-weight: bold;
-}
-.logo_pos .phone {
-    font-size: 16px;
-    font-weight: bold;
-    color: #DE4240;
-    font-style: italic;
-}
+}*/
+
 /**菜单样式*/
 .nav-bg {
-    background-color: #E24544;
-    color: #fff;
-    width: 100%;
     height: 40px;
-    line-height: 40px;
-    margin-top: 12px;
+    background: #f33634 url('../image/menu_bg.png') repeat-x;
+    text-align: center;
 }
 .nav-menu {
-    position: relative;
-    left: 50%;
-    float: left;
-}
-.nav-menu .nav-ul {
-    position: relative;
-    left: -50%;
-    z-index: 99;
+    line-height: 40px;
+    display: inline-block;
 }
 .nav-menu .nav-li {
     position: relative;
     float: left;
-    border-right: 1px solid #B81F19;
+    border-left: 1px solid #c70a08;
+}
+.nav-menu .nav-li:first-child {
+    border-left-width: 0;
 }
 .nav-menu .nav-li a {
     color: #fff;
@@ -94,18 +101,20 @@ body {
     position: absolute;
     top: 40px;
     left: 0;
+    z-index: 1000;
 }
 .nav-menu .nav-li ul a {
-    color: #fff;
     font-size: 14px;
     white-space: nowrap;
+    padding: 0 10px;
+    min-width: 88px;
 }
 
 /**滚动图片样式*/
 .show-area {
     position: relative;
-    width: 1104px;
-    height: 530px;
+    width: 1366px;
+    height: 400px;
     margin: 0px auto 16px auto;
     overflow: hidden;
 }
@@ -122,8 +131,8 @@ body {
     cursor: default;
 }
 .img-list a img {
-    width: 1104px;
-    height: 530px;
+    width: 1366px;
+    height: 400px;
     border-width: 0;
 }
 
@@ -257,27 +266,63 @@ body {
 .sports-box {
     border: 1px solid #e0e0e0;;
 }
-.sports-box li{
+.sports-box li {
     width: 200px;
-    padding: 40px 0px;
     float: left;
     background-color: #e0e0e0;
     margin: 15px 37px;
     text-align: center;
     font-size: 20px;
     cursor: pointer;
-    color: #282828;
-}
-.sports-box li:hover {
-    background-color: #ae180a;
-    color: #fff;
+    color: #585858;
 }
 .sports-box li a {
-    color: #282828;
+    color: #585858;
+    display: block;
+    padding: 10px 0;
 }
 .sports-box li a:hover {
+    background-color: #ac180a;
     color: #fff;
 }
+
+.well-box {
+    border: 1px solid #e0e0e0;
+    margin-top: 20px;
+}
+.well-box li {
+    width: 200px;
+    float: left;
+    margin: 15px 0px;
+    text-align: center;
+    padding: 0px 10px;
+    font-size: 20px;
+    color: #585858;
+}
+.well-box li .well-item {
+    border: 2px solid #5b6aff;
+}
+.well-box li .well-item .item-title {
+    position: relative;
+}
+.well-box li .well-item .item-title img {
+    width: 100%;
+    height: 140px;
+}
+.well-box li .well-item .item-title .title-note {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    padding: 2px 0;
+    width: 100%;
+    background-color: #000;
+    color: #ffffff;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    font-size: 16px;
+}
+
 
 .video-news {
     height: 320px;
@@ -291,14 +336,15 @@ body {
     height: 100%;
 }
 .news-box {
-    width: 550px;
+    width: 530px;
     float: right;
 }
-.video-box .video-title, .news-box .news-title, .sports-box .sports-title {
+.video-box .video-title, .news-box .news-title, .sports-box .sports-title,
+.well-box .sports-title {
     line-height: 40px;
     height: 40px;
     position: relative;
-    background: #3483c7
+    background: #dee0e1;
 }
 .video-box h2 {
     color: #c6c6c6;
@@ -306,7 +352,8 @@ body {
     text-align: center;
     margin-top: 20px;
 }
-.video-box .video-title span, .news-box .news-title span, .sports-box .sports-title span {
+.video-box .video-title span, .news-box .news-title span, .sports-box .sports-title span,
+.well-box .sports-title span{
     background: url("../image/tab4.png") no-repeat;
     height: 40px;
     width: 192px;
@@ -496,23 +543,12 @@ body {
 }
 
 /*******少儿健康********/
-.health-box {
+.health-box, .single-box, .middle-exam-box, .aboutUs-box, .grade-box {
     font-size: 16px;
     width: 900px;
     margin: 20px auto;
     border: 1px solid #e0e0e0;
     padding: 20px 24px;
-}
-.health-box .bold-red {
-    font-weight: bold;
-    color: red;
-}
-.health-topic h2 {
-    font-weight: bold;
-    color: #DE4240;
-    text-align: center;
-    font-size: 24px;
-    letter-spacing: 12px;
 }
 .health-topic h2 em {
     font-style: normal;
@@ -565,30 +601,60 @@ body {
     font-size: 18px;
     font-weight: bold;
 }
-.health-topic table, .health-rules table {
-    border: 1px solid #DE4240;
-    border-collapse: collapse;
-    margin: auto;
-}
-.health-topic table th, .health-rules table th, .health-topic table td,
-.health-rules table td {
-    border: 1px solid #DE4240;
-    padding: 4px 20px;
-    white-space: nowrap;
-    text-align: center;
-}
 .health-topic table .health-over span {
     width: 88px;
     text-align: right;
     display: inline-block;
 }
-.health-box .health-rules p {
+
+/**强调文本**/
+.note-text {
+    color: #de150c;
+}
+/********段落样式*****/
+.health-box p, .single-box p, .middle-exam-box p
+,.aboutUs-box p, .grade-box p {
     text-indent: 2em;
 }
+.health-box h2, .single-box h2, .middle-exam-box h2
+,.aboutUs-box h2, .grade-box h2 {
+    font-size: 22px;
+    text-align: center;
+    color: #DE4240;
+    letter-spacing: 8px;
+    margin-bottom: 12px;
+}
+.health-box h4, .single-box h4, .middle-exam-box h4 .grade-box h4
+,.aboutUs-box h4 {
+    font-size: 16px;
+}
+table.par {
+    border: 1px solid #605756;
+    border-collapse: collapse;
+    margin: 8px auto;
+}
+.par th, .par td, .par caption {
+    border: 1px solid #605756;
+    padding: 4px 20px;
+    white-space: nowrap;
+    text-align: center;
+}
+.par caption {
+    border-bottom-width: 0;
+}
 
-
-
-
+.single-box .tj-barcode {
+    width: 434px;
+    height: 434px;
+    background: url('../image/barcode/cdtj.png') no-repeat;
+    margin: auto;
+    border: 2px solid #DE4240;
+}
+.single-box .text-label {
+    width: 180px;
+    text-align: right;
+    display: inline-block;
+}
 
 /**footer*/
 #footer {

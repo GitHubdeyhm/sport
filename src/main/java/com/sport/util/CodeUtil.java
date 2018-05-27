@@ -1,8 +1,6 @@
 package com.sport.util;
 
-import com.sport.common.MessageHelper;
-
-import java.util.Date;
+import com.sport.common.exception.ServiceException;
 
 /**
  * 生成编码工具类
@@ -22,15 +20,15 @@ public class CodeUtil {
      */
     public static String generateCode(String parentCode, String maxChildCode) {
         String maxCode = "0";
-        if (!StringUtil.isBlank(maxChildCode)) {
+        if (!StringUtil.isNullOrEmpty(maxChildCode)) {
             maxCode = maxChildCode.substring(maxChildCode.length() - CODE_LEVEL_LENGTH);
         }
         int codeVal = Integer.parseInt(maxCode) + 1;
         //编码超出了最大范围，返回null
         if (codeVal > MAX_CODE) {
-            MessageHelper.throwMessage("code.max.range");
+            ServiceException.throwMessage("code.max.range");
         }
-        if (StringUtil.isBlank(parentCode)) {
+        if (StringUtil.isNullOrEmpty(parentCode)) {
             parentCode = "";
         }
         return parentCode + String.format(CODE_FORMATE, codeVal);
@@ -41,8 +39,8 @@ public class CodeUtil {
      * @param preffix ：编码前缀
      * @return 编码
      */
-    public static String getTimeCode(String preffix) {
-        return preffix + DateUtil.formatMillisecond(new Date());
-    }
+//    public static String getTimeCode(String preffix) {
+//        return preffix + DateUtil.formatMillisecond(new Date());
+//    }
 
 }

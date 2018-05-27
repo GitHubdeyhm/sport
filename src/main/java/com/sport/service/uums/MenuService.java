@@ -1,8 +1,8 @@
 package com.sport.service.uums;
 
 import com.sport.common.Constant;
-import com.sport.common.MessageHelper;
 import com.sport.common.easyui.TreeNode;
+import com.sport.common.exception.ServiceException;
 import com.sport.dao.uums.MenuDao;
 import com.sport.entity.uums.MenuEntity;
 import com.sport.util.CodeUtil;
@@ -27,8 +27,8 @@ public class MenuService {
     private MenuDao menuDao;
 
     public void saveOrUpdate(MenuEntity menu, String parentCode) {
-        if (StringUtil.isBlank(menu.getMenuName())) {
-            MessageHelper.throwMessage("menu_name_empty");
+        if (StringUtil.isNullOrEmpty(menu.getMenuName())) {
+            ServiceException.throwMessage("menu_name_empty");
         }
         if (menu.getId() == null) {
             menu.setMenuProjectCode("p001");
@@ -37,7 +37,7 @@ public class MenuService {
         } else {
             MenuEntity updateMenu = menuDao.findById(menu.getId());
             if (updateMenu == null) {
-                MessageHelper.throwMessage("menu_not_exist");
+                ServiceException.throwMessage("menu_not_exist");
             }
             updateMenu.setMenuMark(menu.getMenuMark());
             updateMenu.setMenuName(menu.getMenuName());
@@ -61,7 +61,7 @@ public class MenuService {
         for (int i = 0; i < CodeUtil.CODE_LEVEL_LENGTH; i++) {
             sb.append("_");
         }
-        if (StringUtil.isBlank(parentCode)) {
+        if (StringUtil.isNullOrEmpty(parentCode)) {
             return menuDao.findByCode(sb.toString());
         }
         return menuDao.findByCode(parentCode + sb.toString());
@@ -76,7 +76,7 @@ public class MenuService {
         for (int i = 0; i < CodeUtil.CODE_LEVEL_LENGTH; i++) {
             codeLevel.append("_");
         }
-        if (StringUtil.isBlank(parentCode)) {
+        if (StringUtil.isNullOrEmpty(parentCode)) {
             parentCode = "";
         }
         Integer orderNum = menuDao.genOrderNum(parentCode + codeLevel.toString());
@@ -124,7 +124,7 @@ public class MenuService {
     }
 
     public List<MenuEntity> findForNav(String code) {
-        if (!StringUtil.isBlank(code)) {
+        if (!StringUtil.isNullOrEmpty(code)) {
             int level = code.length() / CodeUtil.CODE_LEVEL_LENGTH;
             if (level < 2) {
                 return null;

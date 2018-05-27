@@ -7,18 +7,6 @@
 -->
 
     <div class="health-box"">
-        <#--<div id="nav-location">
-        <#if menuList ??>
-            <div class="location"><span>您所在的位置：</span>
-                <#list menuList as menu>
-                    <#if "${menu_index gt 0}">
-                        <span>&gt;</span>
-                    </#if>
-                    <a href="${menu.menuUrl}?mc=${menu.menuCode}">${menu.menuName}</a>
-                </#list>
-            </div>
-        </#if>
-        </div>-->
         <div class="health-topic">
             <h2>主题：运动快乐，享<em>瘦</em>生活</h2>
             <div style="text-align:center;"><img src="${webRoot}/resources/image/health.png" /></div>
@@ -40,7 +28,7 @@
                     <span id="health_bmi"></span>
                 </li>
             </ul>
-            <table cellpadding="0">
+            <table class="par">
                 <thead>
                 <tr>
                     <th></th>
@@ -71,7 +59,7 @@
                 </tr>
                 </tbody>
             </table>
-            <p style="color:red;">
+            <p class="note-text">
                 <strong>训练方式：</strong>
                 制定相应的训练计划，为孩子量身定制训练手段，安排相应的课时进行训练配合家庭健康饮食。
                 促进孩子速度、力量、耐力、柔韧、协调各方面的身体素质发育。
@@ -79,7 +67,7 @@
         </div>
 
         <div class="health-rules">
-            <h2 class="bold-red">招生简章：</h2>
+            <h2>招生简章</h2>
             <p>
                 成都田径俱乐部隶属于四川伟业星恒体育文化传播有限公司，俱乐部成立于2004年，
                 2009年开始转型，通过科学的体育训练帮助青少年减肥训练；2016年创建基地高端合作平台，
@@ -95,13 +83,14 @@
                 世界卫生组织将机体无器质性病变，但是有一些功能改变的状态称为“第三状态”，
                 中国称为“亚健康状态”。
             </p>
-            <p style="color:red;">
-                本培训中的亚健康指：少儿及青少年不当生活习惯引起的肥胖、不自信、不开朗、协调差、
+            <p class="note-text">
+                <strong>本培训中的亚健康指：</strong>少儿及青少年不当生活习惯引起的肥胖、
+                不自信、不开朗、协调差、
                 驼背、自制力差、畏难等症状反应。通过体育训练来改善孩子各方面的身体和心理素质。
             </p>
 
-            <p class="bold-red">周末长期运动减肥训练：每周2天  6--14岁</p>
-            <p class="bold-red">假期减肥训练（健康减肥营）时间为1个月或者3周   6---14岁</p>
+            <p class="note-text">周末长期运动减肥训练：每周2天（6--14岁）。</p>
+            <p class="note-text">假期减肥训练（健康减肥营）时间为1个月或者3周（6---14岁）。</p>
 
             <p>
                 成都伟业青少年健康夏令营以体验式活动为载体，以健康生活习惯养成为目标，通过科学组织、
@@ -110,7 +99,7 @@
                 的饮食习惯和健康的生活方式，建立超体重中小学生群体健康教育的长效机制，逐步改善、
                 提高超体重学生身心健康。
             </p>
-            <ul class="bold-red">
+            <ul style="text-indent:2em;">
                 <li>1、全方面肥胖体质测试</li>
                 <li>2、制定相应计划和合理安排膳食</li>
                 <li>3、半军事化管理及训练</li>
@@ -119,7 +108,8 @@
                 <li>6、互动趣味活动</li>
                 <li>7、最后体质测试</li>
             </ul>
-            <table cellpadding="0">
+
+            <table class="par">
                 <thead>
                 <tr>
                     <th>班次</th>

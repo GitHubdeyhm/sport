@@ -36,7 +36,7 @@ public class NewsController {
 
     @PostMapping("/save")
     @ResponseBody
-    public ResponseResult<String> save(NewsEntity news) {
+    public ResponseResult save(NewsEntity news) {
         newsService.saveOrUpdate(news);
         return ResponseResult.successResult();
     }

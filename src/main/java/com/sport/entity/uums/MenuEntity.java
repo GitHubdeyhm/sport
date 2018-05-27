@@ -2,6 +2,7 @@ package com.sport.entity.uums;
 
 import com.sport.common.annotation.Id;
 import com.sport.common.annotation.Ignore;
+import com.sport.common.annotation.SelectIgnore;
 import com.sport.common.annotation.Table;
 
 import java.io.Serializable;
@@ -12,6 +13,7 @@ import java.io.Serializable;
 @Table("t_uums_menu")
 public class MenuEntity implements Serializable {
     @Ignore
+    @SelectIgnore
 	private static final long serialVersionUID = 1L;
 
     /**菜单ID*/

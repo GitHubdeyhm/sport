@@ -31,7 +31,7 @@ public class BaseDictController {
 
 
     @PostMapping("/save")
-    public ResponseResult<String> save(BaseDictEntity dict) {
+    public ResponseResult save(BaseDictEntity dict) {
         baseDictService.saveOrUpdate(dict);
         return ResponseResult.successResult();
     }

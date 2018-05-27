@@ -1,6 +1,6 @@
 package com.sport.service.manage;
 
-import com.sport.common.MessageHelper;
+import com.sport.common.exception.ServiceException;
 import com.sport.dao.manage.LeaveMessageDao;
 import com.sport.entity.manage.LeaveMessageEntity;
 import com.sport.util.StringUtil;
@@ -26,22 +26,22 @@ public class LeaveMessageService {
     public void save(LeaveMessageEntity message) {
         String msg = message.getMessage();
         //数据验证
-        if (StringUtil.isBlank(msg)) {
-            MessageHelper.throwMessage("leave_message_msg_empty");
+        if (StringUtil.isNullOrEmpty(msg)) {
+            ServiceException.throwMessage("leave_message_msg_empty");
         }
         if (msg.length() > 140) {
-            MessageHelper.throwMessage("leave_message_msg_too_long");
+            ServiceException.throwMessage("leave_message_msg_too_long");
         }
         String phone = message.getPhone();
         boolean isValidPhone = Pattern.matches("^1[3-8]\\d{9}$", phone);
         if (!isValidPhone) {
-            MessageHelper.throwMessage("leave_message_phone_invalid");
+            ServiceException.throwMessage("leave_message_phone_invalid");
         }
         if (StringUtil.getLength(message.getUserName()) > 20) {
-            MessageHelper.throwMessage("leave_message_username_too_long");
+            ServiceException.throwMessage("leave_message_username_too_long");
         }
         if (StringUtil.getLength(message.getMail()) > 20) {
-            MessageHelper.throwMessage("leave_message_mail_too_long");
+            ServiceException.throwMessage("leave_message_mail_too_long");
         }
         message.setCreateTime(new Date());
         leaveMessageDao.save(message);

@@ -14,16 +14,7 @@ public class StringUtil {
 	private static final String hqlEscape = "_,%";
     /** 下划线字符 */
     private static final char UNDERLINE = '_';
-	
-	/**
-	 * 判断一个字符串是否为null或者空字符串。为null或者空字符串返回true，否则返回false。
-	 * @Date 2016-8-4下午11:33:25
-	 * @param str 字符串对象
-	 * @return 为null或者空字符串返回true，否则返回false。
-	 */
-	public static boolean isNullOrEmpty(String str) {
-		return str == null || str.length() == 0;
-	}
+
 	/**
 	 * 判断一个字符串数组中是否存在至少一个元素为null或者空字符串。存在返回true，否则为false。
 	 * @Date 2016-8-4下午11:33:25
@@ -71,7 +62,7 @@ public class StringUtil {
 	 * @param str 字符串
 	 * @return 如果字符串为null则返回空字符串
 	 */
-	public static String notNullString(String str) {
+	public static String nonNullString(String str) {
 		return (str == null) ? "" : str;
 	}
 
@@ -81,7 +72,7 @@ public class StringUtil {
 	 * @param str 字符串对象
 	 * @return 为null或者空字符串或者去除前后空格字符后为空返回true，否则返回false。
 	 */
-	public static boolean isBlank(String str) {
+	public static boolean isNullOrEmpty(String str) {
 		return str == null ||  str.trim().length() == 0;
 	}
 

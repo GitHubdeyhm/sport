@@ -1,9 +1,9 @@
 package com.sport.common.intercept;
 
-import com.sport.common.CommonCode;
 import com.sport.common.ResponseResult;
 import com.sport.common.exception.ServiceException;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -15,16 +15,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @org.springframework.web.bind.annotation.ControllerAdvice
 public class ControllerAdvice {
 
-    private final Logger log = Logger.getLogger(ControllerAdvice.class);
-
+    private final Logger log = LoggerFactory.getLogger(ControllerAdvice.class);
     /**
      * 自定义异常
      * @date 2017-10-04 00:28
      */
     @ExceptionHandler(ServiceException.class)
     @ResponseBody
-    public ResponseResult<String> handlerExcepation(ServiceException ex) {
-        return new ResponseResult<>(CommonCode.ERROR_CODE, ex.getMessage());
+    public ResponseResult handlerExcepation(ServiceException ex) {
+        return new ResponseResult(ex.getCode(), ex.getMessage());
     }
 
     /**
@@ -33,9 +32,8 @@ public class ControllerAdvice {
      */
     @ExceptionHandler(RuntimeException.class)
     @ResponseBody
-    public ResponseResult<String> handlerExcepation(Exception ex) {
-        log.error(ex);
-        ex.printStackTrace();
+    public ResponseResult handlerExcepation(Exception ex) {
+        log.error("error:{}", ex);
         return ResponseResult.errorResult();
     }
 }

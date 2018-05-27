@@ -3,16 +3,12 @@ package com.sport.common;
 import net.sf.json.JSONObject;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-
-import static com.sport.common.CommonCode.SUCCESS_CODE;
 
 /**
  * 响应请求结果类，返回用户操作结果的提示信息
  * @date 2017-09-09 13:59
  */
-public class ResponseResult<T> implements Serializable {
+public class ResponseResult implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -21,28 +17,28 @@ public class ResponseResult<T> implements Serializable {
     /**响应结果信息*/
     private String msg;
     /**响应结果的数据*/
-    private T data;
+    private Object data;
 
     public ResponseResult(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }
 
-	public ResponseResult(Message msg) {
-        this.code = msg.getCode();
-        this.msg = MessageHelper.getMessage(msg.getKey());
+	public ResponseResult(Message message) {
+        this.code = message.getCode();
+        this.msg = Message.getMessage(message.getKey());
     }
 	/**
 	 * 默认操作成功的方法
 	 */
-	public static ResponseResult<String> successResult() {
-		return new ResponseResult<>(Message.SUCCESS);
+	public static ResponseResult successResult() {
+		return new ResponseResult(Message.SUCCESS);
 	}
 	/**
 	 * 默认操作失败的方法
 	 */
-	public static ResponseResult<String> errorResult() {
-		return new ResponseResult<>(Message.ERROR);
+	public static ResponseResult errorResult() {
+		return new ResponseResult(Message.ERROR);
 	}
 	
 	public int getCode() {
@@ -59,24 +55,12 @@ public class ResponseResult<T> implements Serializable {
 		this.msg = msg;
 	}
 	
-	public T getData() {
+	public Object getData() {
 		return data;
 	}
-	public void setData(T data) {
+	public void setData(Object data) {
         this.data = data;
     }
-
-    /**
-     * 返回请求成功的结果为json数据的方法。
-     * @date 2017-09-17 23:35
-     */
-    public static Map<String, Object> successJSON() {
-        Map<String, Object> jsonMap = new HashMap();
-        jsonMap.put(Constant.CODE_KEY, SUCCESS_CODE);
-        jsonMap.put(Constant.MESSAGE_KEY, "");
-        return jsonMap;
-    }
-
 	
 	@Override
 	public String toString() {

@@ -1,9 +1,7 @@
 package com.sport.entity.manage;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sport.common.annotation.Ignore;
 import com.sport.common.annotation.Table;
-import com.sport.util.DateUtil;
 
 import java.util.Date;
 
@@ -16,9 +14,7 @@ public class NewsEntity {
 
     private String newsTitle;
     //发布时间
-    @JsonFormat(pattern = DateUtil.TIME_PATTERN)
     private Date publishTime;
-    @JsonFormat(pattern = DateUtil.TIME_PATTERN)
     private Date createTime;
     //是否发布（1：是，0：否）
     private Boolean isPublish;

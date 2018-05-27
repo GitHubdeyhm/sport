@@ -20,29 +20,33 @@
             <h2>全国最大的田径培训基地</h2>
         </div>
         <div class="logo_pos clearfix">
-            <div class="logo-pic">
-                <a class="logo_name">成都伟业星恒体育文化传播有限公司</a>
+            <div class="logo-pic" style="float: left;">
+                <a href="${webRoot}/index" class="logo-bg">成都伟业星恒体育文化传播有限公司</a>
+                <a href="${webRoot}/index" class="logo-name">
+                    <span>成都伟业星恒体育文化传播有限公司</span>
+                    <br/><span style="font-size:16px;color:#757575;letter-spacing: 2px;">Chengdu Well  Xingheng Sports Culture Club</span>
+                </a>
             </div>
-            <#--<div style="float:right;" class="barcode-big">
-                <img src="${webRoot}/resources/image/barcode.png" id="barcode_big_img" />
-            </div>-->
-            <div style="float:right;">
-                <div class="barcode">
-                    <img src="${webRoot}/resources/image/barcode.png" id="barcode_img" />
+            <div class="big-barcode" style="margin-left:40px;float:left;">
+                <div><img src="${webRoot}/resources/image/barcode.png" /></div>
+                <span style="color:#757575;">扫一扫，关注成都田径</span>
+            </div>
+            <div style="float:left;">
+                <div class="contact-teacher clearfix" style="margin: 10px 0px 6px 0">
+                    <#--<img src="${webRoot}/resources/image/barcode.png" class="barcode_img" />-->
+                    <span>何老师：</span>
+                    <span>13739487852</span>
                 </div>
-                <div>
-                    <span class="teacher">何老师：</span>
-                    <span class="phone">13739487852</span>
-                </div>
-                <div>
-                    <span class="teacher">武老师：</span>
-                    <span class="phone">13739487852</span>
+                <div class="contact-teacher clearfix">
+                   <#-- <img src="${webRoot}/resources/image/barcode.png" class="barcode_img" />-->
+                    <span>武老师：</span>
+                    <span>13739487852</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="nav-bg" style="background: #f33634 url('${webRoot}/resources/image/menu_bg.png') repeat-x">
+    <div class="nav-bg">
         <div class="nav-menu"></div>
     </div>
 </div>

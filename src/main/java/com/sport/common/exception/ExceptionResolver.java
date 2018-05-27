@@ -1,6 +1,7 @@
 package com.sport.common.exception;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ExceptionResolver implements HandlerExceptionResolver {
 
-    private final Logger log = Logger.getLogger(ExceptionResolver.class);
+    private final Logger log = LoggerFactory.getLogger(ExceptionResolver.class);
 
     @Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object o, Exception e) {
@@ -23,7 +24,7 @@ public class ExceptionResolver implements HandlerExceptionResolver {
         ModelAndView mav = new ModelAndView("error/eror404");
 //        mav.addObject("ex", ex);
         e.printStackTrace();
-        log.error(e);
+        log.error("", e);
         return mav;
     }
 }

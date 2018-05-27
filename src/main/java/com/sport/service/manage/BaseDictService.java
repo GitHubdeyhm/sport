@@ -1,6 +1,6 @@
 package com.sport.service.manage;
 
-import com.sport.common.MessageHelper;
+import com.sport.common.exception.ServiceException;
 import com.sport.dao.manage.BaseDictDao;
 import com.sport.entity.manage.BaseDictEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class BaseDictService {
             baseDictDao.save(dict);
         } else {
             if (!dict.getIsEdit()) {
-                MessageHelper.throwMessage("dict_not_edit");
+                ServiceException.throwMessage("dict_not_edit");
             }
             baseDictDao.update(dict);
         }

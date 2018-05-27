@@ -6,7 +6,7 @@
         <ul>
             <li>
                 <a href="javascript:void(0);">
-                    <img src="${webRoot}/resources/image/show/image_1.jpg" />
+                    <img src="${webRoot}/resources/image/show/image_2.jpg" />
                 </a>
             </li>
             <li>
@@ -48,8 +48,51 @@
             <a href="#">更多&gt;&gt;</a>
         </div>
         <ul class="clearfix">
-        <#list ["田径", "篮球", "足球", "跆拳道", "网球", "柔道", "摔跤", "散打", "武术", "排球"] as x >
-            <li><a href="#">${x}</a></li>
+            <li>
+                <a href="#">
+                    <img src="${webRoot}/resources/image/a2.png" style="width:100px;height:100px;"/>
+                    <div>足球</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="${webRoot}/resources/image/a1.png" style="width:100px;height:100px;"/>
+                    <div>篮球</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="${webRoot}/resources/image/a3.png" style="width:100px;height:100px;"/>
+                    <div>网球</div>
+                </a>
+            </li>
+        <#list ["田径", "跆拳道", "柔道", "摔跤", "散打"] as x >
+            <li><a href="#">
+                <img src="${webRoot}/resources/image/a1.png" style="width:100px;height:100px;"/>
+            <div>${x}</div>
+            </a></li>
+        </#list>
+        </ul>
+    </div>
+
+    <div class="well-box">
+        <div class="sports-title">
+            <span>田径精品课程</span>
+        </div>
+        <ul class="clearfix">
+        <#list ["少儿兴趣班", "中考体育", "寒暑假集训营", "外派私教", "活动赛事策划"] as x>
+            <li>
+                <div class="well-item">
+                    <div class="item-title">
+                        <div><img src="${webRoot}/resources/image/show/image_4.jpg" /></div>
+                        <div class="title-note">${x}</div>
+                    </div>
+                    <div style="font-size:16px;">对象：18周岁龄</div>
+                    <div style="font-size:16px;">内容：小班授课</div>
+                    <div style="font-size:16px;">时间：上课时间</div>
+                    <div style="font-size:16px;">报名：马上报名</div>
+                </div>
+            </li>
         </#list>
         </ul>
     </div>
@@ -74,22 +117,25 @@
                 <a href="#">更多&gt;&gt;</a>
             </div>
             <ul class="news-list">
-                <li><a href="#">新闻标题体育新闻</a></li>
-                <li><a href="#">新闻标题体育新闻</a></li>
-                <li><a href="#">新闻标题体育新闻</a></li>
-                <li><a href="#">新闻标题</a></li>
-                <li><a href="#">新闻标题</a></li>
-                <li><a href="#">新闻标题</a></li>
-                <li><a href="#">新闻标题</a></li>
-                <li><a href="#">新闻标题</a></li>
-                <li><a href="#">新闻标题</a></li>
-                <li><a href="#">新闻标题</a></li>
+                <li><a href="http://www.scsport.gov.cn/xwzx/qsnty/201712/t20171207_26956.html">攀枝花市三中顺利通过“四川省阳光体育示范学校” 复查验收</a></li>
+                <li><a href="#">南充16岁中学生助中国队获亚军</a></li>
+                <li><a href="#">中国足球基金会支持德阳奥校 开展青少年足球菁英人才培育计划</a></li>
+                <li><a href="#">宜宾县举办第三届校园足球联赛</a></li>
+                <li><a href="#">绵阳小学生机器人战队勇夺世界教育机器人大赛一等奖</a></li>
+                <li><a href="#">三台县：2017年绵阳市校园“三大球”比赛漂亮收官</a></li>
+                <li><a href="#">2017年“中国体育彩票杯”绵阳市青少年排球分区赛成功举行</a></li>
+                <li><a href="#">宜宾市举办首届学生运动舞蹈大赛</a></li>
+                <li><a href="#">宜宾筠连景阳小学举行教职工趣味运动会</a></li>
+                <li><a href="#">德阳市第一届赛艇邀请赛在德阳旌湖开赛</a></li>
             </ul>
         </div>
     </div>
 
     <div class="teach-show">
-        <div class="teach-title">教学展示</div>
+        <div class="teach-title">
+            <div>教学展示</div>
+            <div class="english-text">Teaching display</div>
+        </div>
         <div class="img-show"></div>
     </div>
 </div>
@@ -142,7 +188,7 @@
                         });
                     });
                 }
-            }, 200);
+            }, 50);
         }
     });
     //视频播放

@@ -1,5 +1,6 @@
 package com.sport.util;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -10,21 +11,44 @@ import java.util.Date;
  * @Date 2016-12-28下午9:12:23
  */
 public class DateUtil {
-	
-	/**日期格式化字符串*/
-	public static final String DATE_PATTERN = "yyyy-MM-dd";
-	/**时间格式化字符串，不包括秒*/
-	public static final String TIME_NOSECONDS_PATTERN = "yyyy-MM-dd HH:mm";
-	/**时间格式化字符串，包括秒*/
-	public static final String TIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
-	/**时分秒格式化字符串*/
-	public static final String HOUR_MINUTE_SECONDS_PATTERN = "HH:mm:ss";
-	/**毫秒格式化字符串*/
-	public static final String MILLISECOND_PATTERN = "yyyyMMddHHmmssSSS";
-	/**一周星期数组*/
-	public static final String[] WEEKS_DAY = {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
-	/**格式化时间分隔符*/
-	public static final String TIME_SEPARATOR = "-";
+
+    //年月格式
+    public static final String YEAR_MONTH_PATTERN = "yyyy-MM";
+    //日期格式
+    public static final String DATE_PATTERN = "yyyy-MM-dd";
+    //时间格式化字符串，不包括秒
+    public static final String DATE_TIME_NOSECONDS_PATTERN = "yyyy-MM-dd HH:mm";
+    //日期时间格式
+    public static final String DATE_TIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
+
+    //每个月的第一天
+    public static final String FIRST_DAY_OF_MONTH = "-01";
+    public static final String TIME_SEPARATOR = "-";
+
+    /**一天的开始时间*/
+    public static final String DAY_BEGIN_TIME = " 00:00:00";
+    /**一天的结束时间*/
+    public static final String DAY_END_TIME = " 23:59:59";
+
+    /**
+     * 格式化日期时间
+     * @author huangxiaolin
+     * @date 2018-01-05 15:19
+     * @param date 日期，为null则返回null
+     * @param Pattern 格式字符串
+     */
+    public static String formatDateTime(Date date, String Pattern) {
+        if (date == null) {
+            return null;
+        }
+        DateFormat df = null;
+        if (StringUtil.isNullOrEmpty(Pattern)) {
+            df = new SimpleDateFormat(DATE_TIME_PATTERN);
+        } else {
+            df = new SimpleDateFormat(Pattern);
+        }
+        return df.format(date);
+    }
 	
 	
 	/**
@@ -33,10 +57,7 @@ public class DateUtil {
 	 * @return 格式化后的日期字符串：yyyy-MM-dd HH:mm:ss
 	 */
 	public static String formateTime(Date date) {
-		if (date != null) {
-			return new SimpleDateFormat(TIME_PATTERN).format(date);
-		}
-		return null;
+		return formatDateTime(date, DATE_TIME_PATTERN);
 	}
 	
 	/**
@@ -46,10 +67,7 @@ public class DateUtil {
 	 * @return 格式化后的日期字符串 yyyy-MM-dd HH:mm
 	 */
 	public static String formateTimeNoSeconds(Date date) {
-		if (date != null) {
-			return new SimpleDateFormat(TIME_NOSECONDS_PATTERN).format(date);
-		}
-		return null;
+		return formatDateTime(date, DATE_TIME_NOSECONDS_PATTERN);
 	}
 	
 	/**
@@ -58,23 +76,7 @@ public class DateUtil {
 	 * @return 格式化后的日期字符串：yyyy-MM-dd
 	 */
 	public static String formateDate(Date date) {
-		if (date != null) {
-			return new SimpleDateFormat(DATE_PATTERN).format(date);
-		}
-		return null;
-	}
-	
-	/**
-	 * 格式毫秒时间
-	 * @Date 2017-1-10下午9:58:13
-	 * @param date 日期值
-	 * @return
-	 */
-	public static String formatMillisecond(Date date) {
-		if (date != null) {
-			return new SimpleDateFormat(MILLISECOND_PATTERN).format(date);
-		}
-		return null;
+		return formatDateTime(date, DATE_PATTERN);
 	}
 	
 	/**
@@ -90,10 +92,10 @@ public class DateUtil {
 				int len = timeStr.length();
 				if (len == 19) {
 					//字符串格式：yyyy-MM-dd HH:mm:ss
-					return new SimpleDateFormat(TIME_PATTERN).parse(timeStr);
+					return new SimpleDateFormat(DATE_TIME_PATTERN).parse(timeStr);
 				} else if (len == 16) {
 					// yyyy-MM-dd HH:mm
-					return new SimpleDateFormat(TIME_NOSECONDS_PATTERN).parse(timeStr);
+					return new SimpleDateFormat(DATE_TIME_NOSECONDS_PATTERN).parse(timeStr);
 				} else if (len == 10) {
 					//字符串格式：yyyy-MM-dd
 					return new SimpleDateFormat(DATE_PATTERN).parse(timeStr);
@@ -117,7 +119,7 @@ public class DateUtil {
 			cal.setTime(date);
 		}
 		int year = cal.get(Calendar.YEAR);
-		int month = cal.get(Calendar.MONTH)+1;
+		int month = cal.get(Calendar.MONTH) + 1;
 		String monthStr = month < 10 ? ("0"+month) : String.valueOf(month);
 		return year + TIME_SEPARATOR + monthStr + "-01";
 	}
@@ -186,14 +188,14 @@ public class DateUtil {
 	 * @param date 日期对象
 	 * @return 如果日期对象为空则返回当前日期的“星期几”，否则返回格式为“星期几”
 	 */
-	public static String getWeekByDate(Date date) {
+	/*public static String getWeekByDate(Date date) {
 		Calendar cal = Calendar.getInstance();
 		if (date != null) {
 			cal.setTime(date);
 		}
 		int days = cal.get(Calendar.DAY_OF_WEEK);//一周的第几天：星期天为第一天，星期六为第七天
 		return WEEKS_DAY[days-1];
-	}
+	}*/
 	/**
 	 * 根据日期得到当天所属一周范围内的日期，日期格式为yyyy-MM-dd
 	 * <p>说明：此方法获取的一周中星期一为第一天，星期天为一周的最后一天，升序输出</p>
@@ -290,7 +292,7 @@ public class DateUtil {
 		cal.setTime(getOffsetDay(null, 120));
 		System.out.println(cal.get(Calendar.YEAR)+"---"+cal.get(Calendar.MONTH));
 		
-		System.out.println(getWeekByDate(null));
+//		System.out.println(getWeekByDate(null));
 		System.out.println(getDaysOfYM(new Date()));
 //		System.out.println(getWeeksByDay(new Date()));
 		

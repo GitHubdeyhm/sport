@@ -1,6 +1,7 @@
 package com.sport.util.file;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.Scanner;
@@ -11,7 +12,7 @@ import java.util.Scanner;
  */
 public class IOUtil {
 
-	private static final Logger log = Logger.getLogger(IOUtil.class);
+	private static final Logger log = LoggerFactory.getLogger(IOUtil.class);
 
 	/**
 	 * 从一个输入流中读取字符内容，常用于从httpclient中获取响应内容文本。
@@ -28,7 +29,7 @@ public class IOUtil {
 				sb.append(content);
 			}
 		} catch (IOException e) {
-			log.error(e);
+			log.error("", e);
 		} finally {
 			safeClose(br);
 		}

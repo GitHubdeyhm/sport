@@ -22,7 +22,7 @@ public class LeaveMessageController {
     private LeaveMessageService leaveMessageService;
 
     @PostMapping("/save")
-    public ResponseResult<String> save(LeaveMessageEntity message) {
+    public ResponseResult save(LeaveMessageEntity message) {
         leaveMessageService.save(message);
         return ResponseResult.successResult();
     }

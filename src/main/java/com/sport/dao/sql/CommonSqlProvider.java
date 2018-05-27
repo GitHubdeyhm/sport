@@ -1,8 +1,9 @@
 package com.sport.dao.sql;
 
-import com.sport.common.MessageHelper;
 import com.sport.common.annotation.Ignore;
+import com.sport.common.annotation.SelectIgnore;
 import com.sport.common.annotation.Table;
+import com.sport.common.exception.ServiceException;
 import com.sport.entity.uums.MenuEntity;
 import com.sport.util.StringUtil;
 
@@ -22,12 +23,6 @@ public class CommonSqlProvider {
      * @date 2017-09-19 22:14
      */
     public String insert(final Object entity) {
-//        Map<String, String> nameValueMap = SqlHelper.getFieldNameValueMap(obj);
-//        return new SQL()
-//                .INSERT_INTO(SqlHelper.getTableName(obj))
-//                .INTO_COLUMNS(nameValueMap.get(SqlHelper.FIELD_NAME))
-//                .INTO_VALUES(nameValueMap.get(SqlHelper.FIELD_VALUE))
-//                .toString();
         Class<?> entityClass = entity.getClass();
         Field[] fields = entityClass.getDeclaredFields();
         StringBuilder fieldSql = new StringBuilder();
@@ -52,23 +47,17 @@ public class CommonSqlProvider {
         StringBuilder sql = new StringBuilder();
         sql.append("INSERT INTO ").append(getTableName(entityClass))
                 .append("(")
-                .append(fieldSql.substring(1, fieldSql.length()))
+                .append(fieldSql.substring(1))
                 .append(") VALUES (")
-                .append(valueSql.substring(1, valueSql.length()))
+                .append(valueSql.substring(1))
                 .append(")");
         return sql.toString();
     }
-
     /**
      * update语句
      * @date 2017-09-23 22:02
      */
     public String update(final Object entity) {
-//        return new SQL()
-//                .UPDATE(SqlHelper.getTableName(entity))
-//                .SET(SqlHelper.getUpdateSet(entity))
-//                .WHERE(WHERE_ID)
-//                .toString();
         Class<?> entityClass = entity.getClass();
         Field[] fields = entityClass.getDeclaredFields();
         StringBuilder fieldSql = new StringBuilder();
@@ -91,9 +80,64 @@ public class CommonSqlProvider {
         StringBuilder sql = new StringBuilder();
         sql.append("UPDATE ").append(getTableName(entityClass))
                 .append(" SET ")
-                .append(fieldSql.substring(1, fieldSql.length()))
+                .append(fieldSql.substring(1))
                 .append(" WHERE ")
                 .append(WHERE_ID);
+        return sql.toString();
+    }
+
+    /**
+     * 拼接sql语句
+     * @date 2017-12-08 21:44
+     */
+    public String findById(int id, Class<?> entityClass) {
+        StringBuilder sql = new StringBuilder("SELECT * FROM ");
+        sql.append(getTableName(entityClass));
+        sql.append(WHERE_ID);
+        return sql.toString();
+    }
+
+    /**
+     * 查询语句
+     * @date 2017-09-23 22:02
+     */
+    public String find(final Object entity) {
+        Class<?> entityClass = entity.getClass();
+        Field[] fields = entityClass.getDeclaredFields();
+        StringBuilder fieldSql = new StringBuilder();
+        try {
+            for (Field field : fields) {
+                field.setAccessible(true);
+                if (field.isAnnotationPresent(SelectIgnore.class)) {
+                    continue;
+                }
+                boolean isAppend = false;
+                if (field.getType() == String.class) {
+                    if (!StringUtil.isNullOrEmpty((String)field.get(entity))) {
+                        isAppend = true;
+                    }
+                } else {
+                    if ((field.get(entity) != null)) {
+                        isAppend = true;
+                    }
+                }
+                //添加查询条件
+                if (isAppend) {
+                    fieldSql.append(" AND ");
+                    fieldSql.append(StringUtil.toUnderlineName(field.getName()));
+                    fieldSql.append("=#{");
+                    fieldSql.append(field.getName());
+                    fieldSql.append("}");
+                }
+            }
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        //拼接sql语句
+        StringBuilder sql = new StringBuilder();
+        sql.append("SELECT * FROM ").append(getTableName(entityClass))
+                .append(" WHERE ")
+                .append(fieldSql.substring(4));
         return sql.toString();
     }
 
@@ -102,18 +146,27 @@ public class CommonSqlProvider {
      * @date 2017-09-19 22:06
      * obj 实体类对象
      */
-    public static String getTableName(Class<?> clazz) {
-        Table table = clazz.getDeclaredAnnotation(Table.class);
+    public static String getTableName(Class<?> entityClass) {
+        Table table = entityClass.getDeclaredAnnotation(Table.class);
         if (table == null) {
-            MessageHelper.throwMessage("实体类需要通过注解Table映射表名");
+            ServiceException.throwMessage("实体类需要通过注解Table映射表名");
+        }
+        String tableName = table.value();
+        //默认数据库表的名称为类的名称下划线命名
+        if (StringUtil.isNullOrEmpty(tableName)) {
+            return StringUtil.toUnderlineName(entityClass.getSimpleName());
         }
         return table.value();
     }
 
     public static void main(String[] args) {
         CommonSqlProvider sqlProvider = new CommonSqlProvider();
-        System.out.println(sqlProvider.insert(new MenuEntity(true)));
-        System.out.println(sqlProvider.update(new MenuEntity(true)));
+        MenuEntity menu = new MenuEntity(true);
+        menu.setMenuCode("001");
+        menu.setMenuOrder(1);
+        menu.setMenuName("");
+        System.out.println(sqlProvider.insert(menu));
+        System.out.println(sqlProvider.update(menu));
+        System.out.println(sqlProvider.find(menu));
     }
-
 }

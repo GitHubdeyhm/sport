@@ -1,7 +1,8 @@
 package com.sport.util.file;
 
 import com.sport.util.StringUtil;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.net.URL;
@@ -14,7 +15,7 @@ import java.util.Properties;
  */
 public class FileUtil {
 	
-	private static final Logger log = Logger.getLogger(FileUtil.class);
+	private static final Logger log = LoggerFactory.getLogger(FileUtil.class);
 
 	/** 属性文件的扩展名 */
 	public static final String PROPERTY_EXT_NAME = ".properties";
@@ -27,7 +28,7 @@ public class FileUtil {
 	 */
 	public static Properties loadPropertiesFile(String fileName) {
 		Properties prop = null;
-		if (!StringUtil.isBlank(fileName)) {
+		if (!StringUtil.isNullOrEmpty(fileName)) {
 			//加载类路径下的属性文件
 			InputStream in = FileUtil.class.getResourceAsStream("/"+fileName+PROPERTY_EXT_NAME);
 			if (in != null) {
@@ -35,7 +36,7 @@ public class FileUtil {
 				try {
 					prop.load(in);
 				} catch (IOException e) {
-					log.error(e);
+					log.error("", e);
 				} finally {
                     IOUtil.safeClose(in);
                 }
@@ -52,7 +53,7 @@ public class FileUtil {
 	 * @return 如果指定文件名或键不存在，则返回null
 	 */
 	public static String getPropertiesValueByKey(String fileName, String key) {
-		if (!StringUtil.isBlank(key)) {
+		if (!StringUtil.isNullOrEmpty(key)) {
 			Properties prop = loadPropertiesFile(fileName);
 			if (prop != null) {
 				return prop.getProperty(key);
@@ -202,7 +203,7 @@ public class FileUtil {
 			out = new FileOutputStream(fileName);
 			out.write(data);
 		} catch (IOException e) {
-			log.error(e);
+			log.error("", e);
 		} finally {
 			if (in != null) {
 				try {

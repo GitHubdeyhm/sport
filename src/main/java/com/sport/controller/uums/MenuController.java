@@ -53,15 +53,15 @@ public class MenuController {
 
     @PostMapping("/showOrderNum")
     @ResponseBody
-    public ResponseResult<Integer> genOrderNum(@RequestParam String parentCode) {
-        ResponseResult<Integer> result = new ResponseResult<>(Message.SUCCESS);
+    public ResponseResult genOrderNum(@RequestParam String parentCode) {
+        ResponseResult result = new ResponseResult(Message.SUCCESS);
         result.setData(menuService.genOrderNum(parentCode));
         return result;
     }
 
     @PostMapping("/save")
     @ResponseBody
-    public ResponseResult<String> saveOrUpdate(MenuEntity menu, @RequestParam(required = false) String parentCode) {
+    public ResponseResult saveOrUpdate(MenuEntity menu, @RequestParam(required = false) String parentCode) {
         menuService.saveOrUpdate(menu, parentCode);
         return ResponseResult.successResult();
     }
@@ -72,8 +72,8 @@ public class MenuController {
      */
     @PostMapping("/showMenu")
     @ResponseBody
-    public ResponseResult<List<MenuEntity>> showMenu() {
-        ResponseResult<List<MenuEntity>> result = new ResponseResult<>(Message.SUCCESS);
+    public ResponseResult showMenu() {
+        ResponseResult result = new ResponseResult(Message.SUCCESS);
         MenuEntity menu = new MenuEntity("front", true);
         menu.setMenuCode("001%");
         result.setData(menuService.find(menu));
