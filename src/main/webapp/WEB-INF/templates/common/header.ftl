@@ -28,7 +28,7 @@
                 </a>
             </div>
             <div class="big-barcode" style="margin-left:40px;float:left;">
-                <div><img src="${webRoot}/resources/image/barcode.png" /></div>
+                <div><img src="${webRoot}/resources/image/barcode/cdtj.png" /></div>
                 <span style="color:#757575;">扫一扫，关注成都田径</span>
             </div>
             <div style="float:left;">
@@ -40,7 +40,7 @@
                 <div class="contact-teacher clearfix">
                    <#-- <img src="${webRoot}/resources/image/barcode.png" class="barcode_img" />-->
                     <span>武老师：</span>
-                    <span>13739487852</span>
+                    <span>18483647992</span>
                 </div>
             </div>
         </div>

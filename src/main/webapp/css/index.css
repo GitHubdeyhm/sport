@@ -114,7 +114,7 @@ body {
 .show-area {
     position: relative;
     width: 1366px;
-    height: 400px;
+    height: 504px;
     margin: 0px auto 16px auto;
     overflow: hidden;
 }
@@ -132,7 +132,7 @@ body {
 }
 .img-list a img {
     width: 1366px;
-    height: 400px;
+    height: 504px;
     border-width: 0;
 }
 
@@ -150,19 +150,19 @@ body {
     color: #fff;
     text-align: center;
     cursor: pointer;
-    opacity: 0.3;
-    filter: alpha(opacity=30);
+    opacity: 0.5;
+    filter: alpha(opacity=50);
 }
 .main-area .button span:hover {
     opacity: 1.0;
     filter: alpha(opacity=100);
 }
 .main-area .button span.last {
-    left: 10px;
+    left: 48px;
     background: #464646 url('../image/arrowl.png') no-repeat 6px 6px;
 }
 .main-area .button span.next {
-    right: 10px;
+    right: 48px;
     background: #464646 url('../image/arrowr.png') no-repeat 6px 6px;
 }
 .main-area .dot-wrap {

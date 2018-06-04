@@ -56,7 +56,7 @@ $(function () {
         }
     });
 
-    //加载小圆点导航
+    //海报图片
     var slideObj = $("#img-list").children("ul");
     var imgLen = slideObj.children("li").length;
     /*var imgNav = $("#img-nav");
@@ -90,10 +90,9 @@ $(function () {
             imgSlide(slideObj, page);
         }
     });
-
     //图片定时
     var imgTimer = window.setInterval(function(){
-       // $("#main-area .next").trigger("click");
+        $("#main-area .next").trigger("click");
     }, 5000);
 
     //留言表单

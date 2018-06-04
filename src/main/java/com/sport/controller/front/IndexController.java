@@ -25,7 +25,7 @@ public class IndexController {
     @Autowired
     private MenuService menuService;
 
-    @GetMapping("/index")
+    @GetMapping({"/", "/index"})
     public String index(HttpServletRequest request) {
         request.setAttribute(Constant.HTML_TITLE_KEY, "首页");
         MenuEntity menu = new MenuEntity("front", true);

@@ -4,32 +4,19 @@
     <!-- 展示图片的布局 -->
     <div class="img-list" id="img-list">
         <ul>
+        <#list 1..4 as x >
             <li>
                 <a href="javascript:void(0);">
-                    <img src="${webRoot}/resources/image/show/image_2.jpg" />
+                    <img src="${webRoot}/resources/image/show/img${x}.jpg" />
                 </a>
             </li>
-            <li>
-                <a href="javascript:void(0);">
-                    <img src="${webRoot}/resources/image/show/image_2.jpg" />
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0);">
-                    <img src="${webRoot}/resources/image/show/image_3.jpg" />
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0);">
-                    <img src="${webRoot}/resources/image/show/image_4.jpg" />
-                </a>
-            </li>
+        </#list>
         </ul>
     </div>
 
-<#-- 左右按钮和当前图片的位置 -->
+    <#-- 左右按钮和当前图片的位置 -->
     <div class="main-area" id="main-area">
-    <#-- 左右按钮 -->
+        <#-- 左右按钮 -->
         <div class="button">
             <span class="last"></span>
             <span class="next"></span>
@@ -80,12 +67,11 @@
             <span>田径精品课程</span>
         </div>
         <ul class="clearfix">
-        <#list ["少儿兴趣班", "中考体育", "寒暑假集训营", "外派私教", "活动赛事策划"] as x>
             <li>
                 <div class="well-item">
                     <div class="item-title">
-                        <div><img src="${webRoot}/resources/image/show/image_4.jpg" /></div>
-                        <div class="title-note">${x}</div>
+                        <div><img src="${webRoot}/resources/image/course/sexqb.jpg" /></div>
+                        <div class="title-note">少儿兴趣班</div>
                     </div>
                     <div style="font-size:16px;">对象：18周岁龄</div>
                     <div style="font-size:16px;">内容：小班授课</div>
@@ -93,7 +79,54 @@
                     <div style="font-size:16px;">报名：马上报名</div>
                 </div>
             </li>
-        </#list>
+            <li>
+                <div class="well-item">
+                    <div class="item-title">
+                        <div><img src="${webRoot}/resources/image/course/zkty.jpg" /></div>
+                        <div class="title-note">中考体育</div>
+                    </div>
+                    <div style="font-size:16px;">对象：18周岁龄</div>
+                    <div style="font-size:16px;">内容：小班授课</div>
+                    <div style="font-size:16px;">时间：上课时间</div>
+                    <div style="font-size:16px;">报名：马上报名</div>
+                </div>
+            </li>
+            <li>
+                <div class="well-item">
+                    <div class="item-title">
+                        <div><img src="${webRoot}/resources/image/course/hsj.jpg" /></div>
+                        <div class="title-note">寒暑假集训营</div>
+                    </div>
+                    <div style="font-size:16px;">对象：18周岁龄</div>
+                    <div style="font-size:16px;">内容：小班授课</div>
+                    <div style="font-size:16px;">时间：上课时间</div>
+                    <div style="font-size:16px;">报名：马上报名</div>
+                </div>
+            </li>
+            <li>
+                <div class="well-item">
+                    <div class="item-title">
+                        <div><img src="${webRoot}/resources/image/course/wpsj.jpg" /></div>
+                        <div class="title-note">外派私教</div>
+                    </div>
+                    <div style="font-size:16px;">对象：18周岁龄</div>
+                    <div style="font-size:16px;">内容：小班授课</div>
+                    <div style="font-size:16px;">时间：上课时间</div>
+                    <div style="font-size:16px;">报名：马上报名</div>
+                </div>
+            </li>
+            <li>
+                <div class="well-item">
+                    <div class="item-title">
+                        <div><img src="${webRoot}/resources/image/course/ssch.jpg" /></div>
+                        <div class="title-note">活动赛事策划</div>
+                    </div>
+                    <div style="font-size:16px;">对象：18周岁龄</div>
+                    <div style="font-size:16px;">内容：小班授课</div>
+                    <div style="font-size:16px;">时间：上课时间</div>
+                    <div style="font-size:16px;">报名：马上报名</div>
+                </div>
+            </li>
         </ul>
     </div>
 
@@ -106,7 +139,7 @@
             <#--<h2>暂无视频展示</h2>-->
             <video id="video-show" class="video-js vjs-default-skin vjs-big-play-centered"
                    controls preload="none" width="550" height="280"
-                   poster="${webRoot}/resources/image/show/image_1.jpg"
+                   poster="${webRoot}/resources/image/show/img4.jpg"
                    data-setup="{}">
                 <source src="${webRoot}/resources/upload/qsmy.mp4" type='video/mp4' />
             </video>
@@ -149,18 +182,31 @@
 <script type="text/javascript">
     videojs.options.flash.swf = "video-js.swf";
     $(function () {
+        //海报展示区域
+        /*var imgBaseUrl = "${webRoot}/resources/image/show/";
+        var showImgStr = '<ul>';
+        for (var i = 1; i <= 4; i++) {
+            showImgStr += '<li>'+
+                   '<a href="javascript:void(0);">'+
+                        '<img src="'+imgBaseUrl+'img'+i+'.jpg" />'+
+                    '</a></li>';
+        }
+        $("#img-list").html(showImgStr + '</ul>');*/
+
+
+
+
+
         //设置展示图片区域的动态样式
         var isMove = true;
-        var imgList = ["/resources/image/show/image_1.jpg", "/resources/image/show/image_2.jpg",
-            "/resources/image/show/image_3.jpg", "/resources/image/show/image_4.jpg", "/resources/image/show/image_4.jpg",
-            "/resources/image/temp/1.jpg"];
+        //var imgList = ["img1.jpg", "img2.jpg", "img3.jpg",];
         var firstLeft = 2;
-        var imgStr = '', len = imgList.length;
+        var imgStr = '', len = 8;
         for (var i = 0; i < len; i++) {
             imgStr += '<li style="left:'+firstLeft+'px">'+
                     '<div class="img-note">一句话描述这张图片</div>'+
                     '<a href="javascript:void(0);">'+
-                    '<img src="${webRoot}'+imgList[i]+'" />'+
+                    '<img src="${webRoot}/resources/image/teach/ts'+i+'.jpg" />'+
                     '</a></li>';
             firstLeft += 220;
         }

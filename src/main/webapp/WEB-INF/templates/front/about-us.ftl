@@ -26,17 +26,38 @@
             为每一位学生的成长奠基
         </p>
         <p><strong>培训理念：</strong>大爱育人，责任于行</p>
+        <p><strong>公司地址：</strong></p>
 
-
+        <div id="map-container" style="width:800px;height: 400px;
+                       border: 2px solid #E6E5E3;margin: 20px auto;">
+        </div>
     </div>
-
 </div>
 
 <#include "common/footer.ftl" />
+<script type="text/javascript"
+        src="http://api.map.baidu.com/api?v=3.0&ak=uZ8uxuexXwaVrVmegxC5DoYD2dgI6BDt">
+</script>
 <script type="text/javascript">
     $(function () {
         //loadNavMenu("${code}");
     });
+    var map = new BMap.Map("map-container");//标签的id或者对象
+    // 创建地图实例
+    var point = new BMap.Point(116.404, 39.915);
+    // 创建点坐标
+    map.centerAndZoom(point, 15);
+    map.enableScrollWheelZoom(true);//开启鼠标滚轮缩放
+    var myGeo = new BMap.Geocoder();
+    // 将地址解析结果显示在地图上,并调整地图视野
+    myGeo.getPoint("成都体育学院", function(point){
+        if (point) {
+            map.centerAndZoom(point, 16);
+            map.addOverlay(new BMap.Marker(point));
+        }else{
+            alert("您选择地址没有解析到结果!");
+        }
+    }, "成都市");
 </script>
 </body>
 </html>
