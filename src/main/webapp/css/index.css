@@ -286,6 +286,7 @@ body {
     color: #fff;
 }
 
+/**精品课程*/
 .well-box {
     border: 1px solid #e0e0e0;
     margin-top: 20px;
@@ -294,20 +295,21 @@ body {
     width: 200px;
     float: left;
     margin: 15px 0px;
-    text-align: center;
     padding: 0px 10px;
-    font-size: 20px;
-    color: #585858;
 }
 .well-box li .well-item {
     border: 2px solid #5b6aff;
+    display: block;
+    text-underline: none;
+    font-size: 16px;
+    color: #585858;
 }
 .well-box li .well-item .item-title {
     position: relative;
+    height: 140px;
 }
 .well-box li .well-item .item-title img {
     width: 100%;
-    height: 140px;
 }
 .well-box li .well-item .item-title .title-note {
     position: absolute;
@@ -320,7 +322,14 @@ body {
     color: #ffffff;
     opacity: 0.6;
     filter: alpha(opacity=60);
-    font-size: 16px;
+}
+.well-box li .well-item .item-body span {
+    text-align: right;
+    width: 78px;
+    display: inline-block;
+}
+.well-box li .well-item .item-span span {
+    width: 60px;
 }
 
 

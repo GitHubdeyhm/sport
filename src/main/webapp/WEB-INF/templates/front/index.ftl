@@ -68,28 +68,32 @@
         </div>
         <ul class="clearfix">
             <li>
-                <div class="well-item">
+                <a class="well-item" href="${webRoot}/child/health/1008">
                     <div class="item-title">
                         <div><img src="${webRoot}/resources/image/course/sexqb.jpg" /></div>
                         <div class="title-note">少儿兴趣班</div>
                     </div>
-                    <div style="font-size:16px;">对象：18周岁龄</div>
-                    <div style="font-size:16px;">内容：小班授课</div>
-                    <div style="font-size:16px;">时间：上课时间</div>
-                    <div style="font-size:16px;">报名：马上报名</div>
-                </div>
+                    <div class="item-body">
+                        <div><span>对象：</span>6--12岁</div>
+                        <div><span>内容：</span>身体素质训练</div>
+                        <div><span>形式：</span>小班授课</div>
+                        <div><span>报名：</span>马上报名</div>
+                    </div>
+                </a>
             </li>
             <li>
-                <div class="well-item">
+                <a class="well-item" href="${webRoot}/middle/exam/1009">
                     <div class="item-title">
                         <div><img src="${webRoot}/resources/image/course/zkty.jpg" /></div>
                         <div class="title-note">中考体育</div>
                     </div>
-                    <div style="font-size:16px;">对象：18周岁龄</div>
-                    <div style="font-size:16px;">内容：小班授课</div>
-                    <div style="font-size:16px;">时间：上课时间</div>
-                    <div style="font-size:16px;">报名：马上报名</div>
-                </div>
+                    <div class="item-body">
+                        <div><span>对象：</span>12--16岁</div>
+                        <div><span>内容：</span>中考体育项目</div>
+                        <div><span>形式：</span>小班授课</div>
+                        <div><span>报名：</span>马上报名</div>
+                    </div>
+                </a>
             </li>
             <li>
                 <div class="well-item">
@@ -97,10 +101,12 @@
                         <div><img src="${webRoot}/resources/image/course/hsj.jpg" /></div>
                         <div class="title-note">寒暑假集训营</div>
                     </div>
-                    <div style="font-size:16px;">对象：18周岁龄</div>
-                    <div style="font-size:16px;">内容：小班授课</div>
-                    <div style="font-size:16px;">时间：上课时间</div>
-                    <div style="font-size:16px;">报名：马上报名</div>
+                    <div class="item-body">
+                        <div><span>对象：</span>12--18岁</div>
+                        <div><span>内容：</span>高考体育训练</div>
+                        <div><span>形式：</span>训练营</div>
+                        <div><span>报名：</span>马上报名</div>
+                    </div>
                 </div>
             </li>
             <li>
@@ -109,10 +115,12 @@
                         <div><img src="${webRoot}/resources/image/course/wpsj.jpg" /></div>
                         <div class="title-note">外派私教</div>
                     </div>
-                    <div style="font-size:16px;">对象：18周岁龄</div>
-                    <div style="font-size:16px;">内容：小班授课</div>
-                    <div style="font-size:16px;">时间：上课时间</div>
-                    <div style="font-size:16px;">报名：马上报名</div>
+                    <div class="item-body">
+                        <div><span>对象：</span>16--18岁</div>
+                        <div><span>内容：</span>指定需求</div>
+                        <div><span>形式：</span>1对1私教</div>
+                        <div><span>报名：</span>马上报名</div>
+                    </div>
                 </div>
             </li>
             <li>
@@ -121,10 +129,12 @@
                         <div><img src="${webRoot}/resources/image/course/ssch.jpg" /></div>
                         <div class="title-note">活动赛事策划</div>
                     </div>
-                    <div style="font-size:16px;">对象：18周岁龄</div>
-                    <div style="font-size:16px;">内容：小班授课</div>
-                    <div style="font-size:16px;">时间：上课时间</div>
-                    <div style="font-size:16px;">报名：马上报名</div>
+                    <div class="item-body item-span">
+                        <div><span>对象：</span>活动需求者</div>
+                        <div><span>内容：</span>运动会、马拉松等</div>
+                        <div><span>形式：</span>策划&bull;组织&bull;实施</div>
+                        <div><span>微信：</span>13739487852</div>
+                    </div>
                 </div>
             </li>
         </ul>
